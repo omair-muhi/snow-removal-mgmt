@@ -1,24 +1,31 @@
-// Creating our Jobs Model
+// Creating our Job Model
 module.exports = function(sequelize, DataTypes) {
-  const Jobs = sequelize.define("Jobs", {
+  const Job = sequelize.define("Job", {
     // Name cannot be null
-    clientName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: false
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
-    // The password cannot be null
+    client_name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: false,
+      freezeTableName: true
+    },
+    
     location: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
+      freezeTableName: true
     },
-    schedule: {
-      type: DataTypes.STRING,
-      allowNull: false,
+//     schedule: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
       // Better to check if the scheduled time can be filled when joining crews and jobs
       //for the day in javascript file // fronside -- manager assigns daily schedule to crews (unique: true)
     },
   });
-  return Jobs;
+  return Job;
 };
