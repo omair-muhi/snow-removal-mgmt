@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
 //       allowNull: false,
       // Better to check if the scheduled time can be filled when joining crews and jobs
       //for the day in javascript file // fronside -- manager assigns daily schedule to crews (unique: true)
-    },
+    
   });
   return Job;
 };
