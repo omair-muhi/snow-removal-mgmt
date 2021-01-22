@@ -1,4 +1,4 @@
-// Creating our Joba model
+// Creating our Jobs Model
 module.exports = function(sequelize, DataTypes) {
   const Jobs = sequelize.define("Jobs", {
     // Name cannot be null
