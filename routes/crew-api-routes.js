@@ -1,4 +1,4 @@
-// Requiring our Todo model
+// Requiring our Crew model
 const db = require('../models');
 
 // Routes - Crews - code adapted from Week #14 Activity #12 Blog CRUD
@@ -41,7 +41,3 @@ module.exports = (app) => {
         }).then((dbPost) => res.json(dbPost));
     });
 };
-// Routes - Employees
-// =============================================================
-// Routes - Jobs
-// =============================================================
