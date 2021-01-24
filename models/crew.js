@@ -1,5 +1,5 @@
-const { Sequelize } = require("sequelize/types");
-
+const Sequelize = require("sequelize");
+// Creating our Crew Model
 module.exports = (sequelize, DataTypes) => {
     const Crew = sequelize.define("Crew", {
         // primary key
@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         employee_id: {
             type: Sequelize.INTEGER,
             references: {
-                model: Employee,
+                model: "Employee",
                 key: 'id',
             }
         },
@@ -16,9 +16,10 @@ module.exports = (sequelize, DataTypes) => {
         job_id: {
             type: Sequelize.INTEGER,
             references: {
-                model: Job,
+                model: "Job",
                 key: 'id',
             }
         }
     });
+    return Crew;
 };

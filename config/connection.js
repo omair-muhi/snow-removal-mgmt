@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 
 // Creates mySQL connection for employeedb
 
-const sequelize = new Sequelize('employee', 'root', '', {
+const sequelize = new Sequelize('', 'root', '', {
   host: 'localhost',
   port: 3306,
   dialect: 'mysql',
