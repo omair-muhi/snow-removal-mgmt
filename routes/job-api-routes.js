@@ -1,4 +1,4 @@
-// Requiring our Todo model
+// Requiring our Job model
 const db = require('../models');
 
 // Routes - Job 
@@ -20,21 +20,21 @@ module.exports = (app) => {
     app.post('/api/jobs', (req, res) => {
         console.log(req.body);
         db.Job.create({
-            employee_id: req.body.employee_id,
-            job_id: req.body.job_id,
+            client_name: req.body.client_name,
+            location: req.body.location,
         }).then((dbPost) => res.json(dbPost));
     });
-    // DELETE route for deleting crews
-    app.delete('/api/crews/:id', (req, res) => {
-        db.Crew.destroy({
+    // DELETE route for deleting jobs
+    app.delete('/api/jobs/:id', (req, res) => {
+        db.Jow.destroy({
             where: {
                 id: req.params.id,
             },
         }).then((dbPost) => res.json(dbPost));
     });
-    // PUT route for updating crews
-    app.put('/api/crews', (req, res) => {
-        db.Crew.update(req.body, {
+    // PUT route for updating jobs
+    app.put('/api/jobs', (req, res) => {
+        db.Job.update(req.body, {
             where: {
                 id: req.body.id,
             },
