@@ -1,3 +1,4 @@
+const Sequelize = require("sequelize");
 // Creating our Employee Model
 module.exports = function(sequelize, DataTypes) {
     const Employee = sequelize.define("Employee", {
