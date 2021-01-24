@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   // Function to grab crews from the database
   const getCrews = () => {
 
-    fetch(`/api/crews` {
+    fetch(`/api/crews`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
       .catch((error) => console.error('Error:', error));
   };
 
-  // Getting initial list of posts
+  // Getting initial list of crews
   getCrews();
 
-  // Function to help construct the post HTML content inside blogContainer
+  // Function to help construct the crew HTML content inside blogContainer
   const initializeRows = () => {
     crewContainer.innerHTML = '';
     const crewsToAdd = [];
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   };
 
   const createNewRow = (crew) => {
-    // Postcard div
+    // Crewcard div
     const newCrewCard = document.createElement('div');
     newCrewCard.classList.add('card');
 
@@ -53,18 +53,11 @@ document.addEventListener('DOMContentLoaded', (e) => {
     const newCrewTitle = document.createElement('h2');
     const newCrewDate = document.createElement('small');
 
-    // New crew category
-    const newCrewCategory = document.createElement('h5');
-    newCrewCategory.textContent = post.category;
-    newCrewCategory.style.float = 'right';
-    newCrewCategory.style.fontWeight = '700';
-    newCrewCategory.style.marginTop = '-15px';
-
-    // New post card body
+    // New crew card body
     const newCrewCardBody = document.createElement('div');
     newCrewCardBody.classList.add('card-body');
 
-    // New Post
+    // New CrewS
     const newCrewBody = document.createElement('p');
     newCrewBody.textContent = crew.body;
 
@@ -73,7 +66,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
     newCrewTitle.appendChild(newCrewDate);
     newCrewCardHeading.appendChild(newCrewTitle);
-    newCrewCardHeading.appendChild(newCrewCategory);
     newCrewCardBody.appendChild(newCrewBody);
     newCrewCard.appendChild(newCrewCardHeading);
     newCrewCard.appendChild(newCrewCardBody);
