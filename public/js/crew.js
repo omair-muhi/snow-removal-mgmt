@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     newCrewCard.classList.add('card');
 
     // Heading
-    const newCrewCard = document.createElement('div');
+    const newCrewCardHeading = document.createElement('div');
     newCrewCard.classList.add('card-header');
 
     // New crew info
