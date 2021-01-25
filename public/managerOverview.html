@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Snow Removal Management</title>
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Dont Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/v4-shims.css">
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/manager.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/homepage.html">Snow Board</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="managerOverview.html">Manager View</a>
+                    <a class="nav-link" href="#">Crews</a>
+                    <a class="nav-link" href="#">Jobs </a>
+                    <a class="nav-link" href="#">Employees</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Offsets table offset-md-2 -->
+    <!-- Employees Container -->
+
+    <div class="container-fluid managerCont">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="employee-container">
+                    <h3>Employees</h1>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th><i class="fas fa-male fa-lg"></i></th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="form-row">
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="crews-container">
+                    <h3 class="manager-headers">Crews</h1>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th><i class="fas fa-people-arrows fa-lg"></i></th>
+                                    <th>Name</th>
+                                    <th>Estimated End-Time</th>
+                                    <th>Assigned Employees</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="form-row">
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="jobs-container">
+                    <h3>Jobs</h1>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th><i class="fas fa-briefcase fa-lg"></i></th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="form-row">
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Snow Management App</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="./js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+    <script src="./js/vendor/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+
+</html>
