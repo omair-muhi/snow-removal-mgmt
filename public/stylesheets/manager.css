@@ -1,0 +1,21 @@
+/* Navigation */
+.nav-link{
+    display: inline-block;
+}
+
+/* Main Container */
+.managerCont{
+    position:relative;
+    margin-top:10vh;
+    height:80vh;
+}
+
+h3{
+
+}
+
+table{
+    margin-top:5vh;
+    margin-left:2.5vw;
+    margin-right:2.5vw;
+}
