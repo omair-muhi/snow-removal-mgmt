@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "mikeServer1!",
+    "password": null,
     "database": "snow_removal_Db",
     "host": "127.0.0.1",
     "dialect": "mysql"
