@@ -19,27 +19,30 @@ $(document).ready(function () {
         }
 
         // If we have an email and password we run the loginUser function and clear the form
-        loginUser(userData.Name, userData.id);
+        loginManager(userData.Name, userData.id);
         nameInput.val("");
         idInput.val("");
     });
 
-    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-    function loginUser(Name, id) {
-        $.post("/api/loginCrew", {
+    function loginManager(Name, id) {
+        $.post("/api/login", {
             Name: Name,
             id: id
         })
             .then((res) => {
                 console.log(res);
-                
-                    if (res) {
-                        window.location.replace("/crews");
-                    }
-                    else {
-                        alert("Incorrect Name or Id! Try Again")
-                    }
-                    res.end();
+
+                if (res.Admin) {
+                    window.location.replace("/managerOverview.html");
+                }
+                else if (res) {
+                    alert(`${res.Name} does not have access to this Page`);
+                    window.location.replace("/");
+                }
+                else {
+                    alert("Incorrect Name or Id! Try Again")
+                }
+                res.end();
 
             })
             .catch(function (err) {

@@ -17,7 +17,7 @@ module.exports = (app) => {
         }).then((dbPost) => res.json(dbPost));
     });
 
-    app.post("/api/loginCrew", (req, res) => {
+    app.post("/api/login", (req, res) => {
         db.Employee.findOne({
             where: {
                 id: req.body.id,
