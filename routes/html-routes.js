@@ -3,24 +3,17 @@ const path = require("path");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
+    // Home Page User Selects Manager or Crews to proceed
     res.sendFile(path.join(__dirname, "../public/homepage.html"));
   });
 
   app.get("/crews", (req, res) => {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
+    // When User Selects Crews they are sent to the crew html page
     res.sendFile(path.join(__dirname, "../public/crew.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/manager", (req, res) => {
+    // When User Selects Manager they are sent to the manager.html
     res.sendFile(path.join(__dirname, "../public/manager.html"));
   });
 };
