@@ -22,6 +22,8 @@ module.exports = {
       unique: true,
       freezeTableName: true
     },
+    createdAt: Sequelize.DATE,
+    updatedAt: Sequelize.DATE,
   })
   },
   down: (queryInterface, Sequelize) => {

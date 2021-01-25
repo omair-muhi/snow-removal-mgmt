@@ -22,11 +22,13 @@ module.exports = {
       freezeTableName: true
     },
     Contact: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
       allowNull: false,
       unique: true,
       freezeTableName: true
-    }
+    },
+    createdAt: Sequelize.DATE,
+    updatedAt: Sequelize.DATE,
   })
   },
   down: (queryInterface, Sequelize) => {
