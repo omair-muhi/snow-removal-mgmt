@@ -27,10 +27,6 @@ module.exports = {
       unique: true,
       freezeTableName: true
     },
-<<<<<<< HEAD
-    createdAt: Sequelize.DATE,
-    updatedAt: Sequelize.DATE,
-=======
     Admin: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
@@ -39,7 +35,6 @@ module.exports = {
       // Timestamps
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
->>>>>>> employeeTableAlter
   })
   },
   down: (queryInterface, Sequelize) => {
