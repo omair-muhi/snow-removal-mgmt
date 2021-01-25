@@ -2,7 +2,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Employee', {
+    return queryInterface.createTable('Employees', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -31,10 +31,13 @@ module.exports = {
       type: Sequelize.BOOLEAN,
       allowNull: false,
       freezeTableName: true
-    }
+    }, 
+      // Timestamps
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE,
   })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Employee');
+    return queryInterface.dropTable('Employees');
   }
 };
