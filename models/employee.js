@@ -27,8 +27,11 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         freezeTableName: true
       },
-
-    });
-    return Employee;
-  };
-  
+    Admin: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      freezeTableName: true
+    }
+  });
+  return Employee;
+};

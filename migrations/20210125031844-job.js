@@ -3,7 +3,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Job', {
+    return queryInterface.createTable('Jobs', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -22,11 +22,17 @@ module.exports = {
       unique: true,
       freezeTableName: true
     },
+<<<<<<< HEAD
     createdAt: Sequelize.DATE,
     updatedAt: Sequelize.DATE,
+=======
+          // Timestamps
+          createdAt: Sequelize.DATE,
+          updatedAt: Sequelize.DATE,
+>>>>>>> employeeTableAlter
   })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Job');
+    return queryInterface.dropTable('Jobs');
   }
 };
