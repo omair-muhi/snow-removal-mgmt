@@ -26,10 +26,15 @@ module.exports = {
       allowNull: false,
       unique: true,
       freezeTableName: true
+    },
+    Admin: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      freezeTableName: true
     }
   })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Empoyee');
+    return queryInterface.dropTable('Employee');
   }
 };

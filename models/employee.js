@@ -27,19 +27,6 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         freezeTableName: true
       },
-
-    Title: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: false,
-      freezeTableName: true
-    },
-    Contact: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      unique: true,
-      freezeTableName: true
-    },
     Admin: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
