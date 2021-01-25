@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
         freezeTableName: true
       },
       Contact: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         unique: true,
         freezeTableName: true

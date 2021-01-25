@@ -3,21 +3,27 @@ const Sequelize = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     const Crew = sequelize.define("Crew", {
         // primary key
-        id: { type: Sequelize.INTEGER, primaryKey: true },
+        id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         // a foreign key from Employee table
         employee_id: {
             type: Sequelize.INTEGER,
             references: {
-                model: "Employee",
+                model: "Employees",
                 key: 'id',
+                allowNull: true
             }
         },
         // a foreign key from Job table
         job_id: {
             type: Sequelize.INTEGER,
             references: {
-                model: "Job",
+                model: "Jobs",
                 key: 'id',
+                allowNull: true
             }
         }
     });

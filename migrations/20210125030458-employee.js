@@ -1,14 +1,35 @@
-const path = require('path');
 
+'use strict';
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-    return queryInterface.createTable(
-      'employee',
-      require(path.join(__dirname + '/PATH/TO/models', 'employee.js')).def(Sequelize)
-    );
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('Employee', {
+      id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    Name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: false,
+      freezeTableName: true
+    },
+    
+    Title: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: false,
+      freezeTableName: true
+    },
+    Contact: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      unique: true,
+      freezeTableName: true
+    }
+  })
   },
-
-  down: function (queryInterface, Sequelize) {
-    return Promise.all([queryInterface.dropTable('employee')]);
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('Empoyee');
   }
 };
