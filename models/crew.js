@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         employee_id: {
             type: Sequelize.INTEGER,
             references: {
-                model: "Employees",
+                model: "Employee",
                 key: 'id',
                 allowNull: true
             }
@@ -21,11 +21,13 @@ module.exports = (sequelize, DataTypes) => {
         job_id: {
             type: Sequelize.INTEGER,
             references: {
-                model: "Jobs",
+                model: "Job",
                 key: 'id',
                 allowNull: true
             }
         }
+    }, {
+        freezeTableName: true
     });
     return Crew;
 };
