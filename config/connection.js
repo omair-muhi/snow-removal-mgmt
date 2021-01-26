@@ -2,7 +2,7 @@
 // Dependencies
 const Sequelize = require('sequelize');
 
-// Creates mySQL connection for employeedb
+// Creates mySQL connection for Snow management db
 
 const sequelize = new Sequelize('', 'root', '', {
   host: 'localhost',
