@@ -32,7 +32,7 @@ $(document).ready(function () {
         })
             .then((res) => {
                 console.log(res);
-                
+                localStorage.setItem('name',res.Name);
                     if (res) {
                         window.location.replace("/crews");
                     }
