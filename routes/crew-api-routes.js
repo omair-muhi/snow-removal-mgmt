@@ -16,6 +16,16 @@ module.exports = (app) => {
             },
         }).then((dbPost) => res.json(dbPost));
     });
+
+    app.post("/api/login", (req, res) => {
+        db.Employee.findOne({
+            where: {
+                id: req.body.id,
+                Name: req.body.Name,
+            },
+        }).then((dbPost) => res.json(dbPost));
+    });
+
     // POST route for creating a new crew
     app.post('/api/crews', (req, res) => {
         console.log(req.body);
