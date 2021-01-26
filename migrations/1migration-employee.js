@@ -31,13 +31,10 @@ module.exports = {
       // Timestamps
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
-
     }, {
       freezeTableName: true
     });
   },
-
-
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Employee');
   }

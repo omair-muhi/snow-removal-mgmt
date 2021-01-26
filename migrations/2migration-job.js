@@ -13,14 +13,13 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
         unique: false,
-        freezeTableName: true
       },
 
       location: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
-        freezeTableName: true
+        
       },
       // Timestamps
       createdAt: Sequelize.DATE,
