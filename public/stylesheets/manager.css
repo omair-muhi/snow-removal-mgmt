@@ -16,18 +16,29 @@ table{
     margin-right:2.5vw;
 }
 
+/* Job Data and Controls */
+
 .jobs-text {   
     margin-right:1vw;
-    float:right;
 }
   
 .tableRow{
     height:10vh;
-    
+    display: flex;
+    margin-left: 4vw;
 }
 
-  
-.jobs-text td{
-    display:block;
+.jobInfo{
+    margin-top:1vh;
+    margin-left:5vw;
+    width: 60%;
+    
 }
   
+
+
+.jobButtons {
+    display: flex;
+    float:left;
+    flex-direction: column;
+}

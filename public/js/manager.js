@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderJobsList(rowsToAdd);
                 nameInput.value = '';
             })
-            .catch((error) => console.error('Error:', error));
+            .catch((err) => console.err('Error:', err));
     };
 
     // Create list row for jobs
@@ -28,13 +28,29 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set each job's ID on the element itself
         tr.id = jobData.id;
         tr.className = "tableRow";
+    
+        // Add Job Info
+        const jobInfo = document.createElement('div');
+        jobInfo.innerHTML = `
+        <div class = "jobInfo">
+        <td> ${jobData.client_name}</button>
+        <td> ${jobData.location}</button>
+        </div>
+        `;
+        
+        // "Mark Job Complete or Asign to Crew
 
-        const td = document.createElement('td');
-        const td2 = document.createElement('td');
-        td.textContent = jobData.client_name;
-        td2.textContent = jobData.location;
-        tr.appendChild(td);
-        tr.appendChild(td2);
+        const jobButtons = document.createElement('div');
+        jobButtons.innerHTML = `
+        <div class = "jobButtons">
+        <button class='asignJob'> Asign Job</button>
+        <button class='completeJob'> Complete</button>
+        </div>
+        `;
+        
+        tr.appendChild(jobButtons);
+        tr.appendChild(jobInfo);
+        
 
         // Return the table row
         return tr;
