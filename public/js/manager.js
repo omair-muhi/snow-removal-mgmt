@@ -27,10 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Set each job's ID on the element itself
         tr.id = jobData.id;
+        tr.className = "tableRow";
 
         const td = document.createElement('td');
-        td.textContent = jobData.location;
+        const td2 = document.createElement('td');
+        td.textContent = jobData.client_name;
+        td2.textContent = jobData.location;
         tr.appendChild(td);
+        tr.appendChild(td2);
 
         // Return the table row
         return tr;

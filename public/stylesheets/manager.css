@@ -16,7 +16,18 @@ table{
     margin-right:2.5vw;
 }
 
+.jobs-text {   
+    margin-right:1vw;
+    float:right;
+}
+  
+.tableRow{
+    height:10vh;
+    
+}
 
   
-  
+.jobs-text td{
+    display:block;
+}
   
