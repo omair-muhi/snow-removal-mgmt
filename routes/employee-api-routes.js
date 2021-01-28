@@ -44,7 +44,7 @@ module.exports = (app) => {
     });
     // route for HBS    
     app.get('/employeeMain', (req, res) => {
-        console.log("GOT THE ROUTE!");
+        console.log("Hit /employeeMain end-point!");
         db.Employee.findAll({}).then((dbPost) => {
             // console.log(dbPost[0].dataValues);
             const hbsObject = {

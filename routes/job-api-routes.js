@@ -1,6 +1,6 @@
 // Requiring our Job model
 const db = require('../models');
-
+const exphbs = require('express-handlebars');
 // Routes - Job 
 // =============================================================
 module.exports = (app) => {
@@ -26,7 +26,7 @@ module.exports = (app) => {
     });
     // DELETE route for deleting jobs
     app.delete('/api/jobs/:id', (req, res) => {
-        db.Jow.destroy({
+        db.Job.destroy({
             where: {
                 id: req.params.id,
             },
@@ -39,5 +39,18 @@ module.exports = (app) => {
                 id: req.body.id,
             },
         }).then((dbPost) => res.json(dbPost));
+    });
+    // route for HBS    
+    app.get('/jobMain', (req, res) => {
+        console.log("Hit /jobMain end-point!");
+        db.Job.findAll({}).then((dbPost) => {
+            console.log(dbPost);
+            const hbsObject = {
+                jobs: dbPost,
+            };
+            // console.log(hbsObject.jobs[0].dataValues);
+            app.engine('handlebars', exphbs({ defaultLayout: 'jobMain' }));
+            res.render('jobPartial', hbsObject);
+        });
     });
 };
