@@ -1,6 +1,6 @@
 // Requiring our employee model
 const db = require('../models');
-
+const exphbs = require('express-handlebars');
 // Routes - Employees
 // =============================================================
 module.exports = (app) => {
@@ -41,5 +41,18 @@ module.exports = (app) => {
                 id: req.body.id,
             },
         }).then((dbPost) => res.json(dbPost));
+    });
+    // route for HBS    
+    app.get('/employeeMain', (req, res) => {
+        console.log("GOT THE ROUTE!");
+        db.Employee.findAll({}).then((dbPost) => {
+            // console.log(dbPost[0].dataValues);
+            const hbsObject = {
+                employees: dbPost,
+            };
+            console.log(hbsObject.employees[0].dataValues);
+            app.engine('handlebars', exphbs({ defaultLayout: 'employeeMain' }));
+            res.render('employeePartial', hbsObject);
+        });
     });
 };
