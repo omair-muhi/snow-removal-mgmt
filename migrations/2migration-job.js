@@ -3,16 +3,20 @@ module.exports = {
     up: async(queryInterface, Sequelize) => {
         await queryInterface.createTable('Job', {
             id: {
-                allowNull: false,
-                autoIncrement: true,
+                type: Sequelize.INTEGER,
                 primaryKey: true,
-                type: Sequelize.INTEGER
+                autoIncrement: true,
+                allowNull: false,
             },
             client_name: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                allowNull: false,
+                unique: false
             },
             location: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                allowNull: false,
+                unique: true
             },
             active: {
                 type: Sequelize.BOOLEAN
