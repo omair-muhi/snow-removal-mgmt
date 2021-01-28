@@ -16,6 +16,7 @@ app.use(express.static("public"));
 require("./routes/html-routes.js")(app);
 require("./routes/crew-api-routes.js")(app);
 require("./routes/job-api-routes.js")(app);
+require("./routes/employee-api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {

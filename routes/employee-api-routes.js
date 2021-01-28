@@ -6,7 +6,7 @@ const db = require('../models');
 module.exports = (app) => {
     // GET route for getting all employees
     app.get('/api/employees/', (req, res) => {
-        db.employee.findAll({}).then((dbPost) => res.json(dbPost));
+        db.Employee.findAll({}).then((dbEmployee) => res.json(dbEmployee));
     });
     // GET route for retrieving a single employee
     app.get('/api/employees/:id', (req, res) => {

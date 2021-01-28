@@ -8,7 +8,8 @@
     <meta name="author" content="">
     <title>Snow Removal Management</title>
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/v4-shims.css">
@@ -48,25 +49,23 @@
         <div class="row">
 
             <div class="col-md-3">
-                <div class="employee-container">
+                <div class="employees-container">
                     <a href="job.html">
                         <h3>Employees</h1>
                     </a>
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th><i class="fas fa-male fa-lg"></i></th>
                                 <th>Name</th>
+                                <th><i class="fas fa-male fa-lg"></i></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <div id="employeesList" class="text-success">
-                            </div>
-                        </tbody>
                     </table>
+                    <div id="employeesList" class="employee-text text-success mr-5">
+                    </div>
                 </div>
             </div>
-
+            <!-- Crews Container -->
             <div class="col-md-6">
                 <div class="crews-container">
                     <h3 class="manager-headers">Crews</h1>
@@ -79,16 +78,12 @@
                                     <th>Assigned Employees</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <div id="crewsList" class="crew-text text-success">
-                                </div>
-                                </a>
-                                </tr>
-                            </tbody>
                         </table>
+                        <div id="crewsList" class="crew-text text-success mr-5">
+                        </div>
                 </div>
             </div>
-
+            <!-- Jobs Container -->
             <div class="col-md-3">
                 <div class="jobs-container">
                     <h3>Jobs</h1>
@@ -100,13 +95,10 @@
                                 </tr>
                             </thead>
                         </table>
-
                         <div id="jobsList" class="jobs-text text-success mr-5">
                         </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 

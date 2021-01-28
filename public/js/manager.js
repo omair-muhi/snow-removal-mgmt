@@ -1,6 +1,97 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const nameInput = document.getElementById('user');
+    // Employee Logic
+    
+
+    const employeesList = document.getElementById('employeesList');
+
+    // Grab all the jobs
+    const getEmployee = () => {
+        $.get('/api/employees', {
+
+        })
+            .then((data) => {
+                console.log(data);
+                const eRowsToAdd = [];
+                for (let i = 0; i < data.length; i++) {
+                    eRowsToAdd.push(createEmployeesRow(data[i]));
+                }
+                renderEmployeesList(eRowsToAdd);
+            })
+            .catch((err) => console.log('Error:', err));
+    };
+
+    // Create list row for employees
+    const createEmployeesRow = (employeeData) => {
+        const tr = document.createElement('tr');
+        tr.setAttribute('data-employee', JSON.stringify(employeeData));
+        // Set each employee's ID on the element itself
+        tr.id = employeeData.id;
+        tr.className = "tableRow";
+    
+        // Add employee Info
+        const employeeInfo = document.createElement('div');
+        employeeInfo.innerHTML = `
+        <div class = "employeeInfo">
+        <td> ${employeeData.Name}</td>
+        </div>
+        `;
+        
+        // "Mark employee Complete or Asign to Crew
+
+        const employeeButtons = document.createElement('div');
+        employeeButtons.innerHTML = `
+        <div class = "employeeButtons">
+        <button class='asignEmployee'> Asign Employee</button>
+        </div>
+        `;
+        
+        tr.appendChild(employeeInfo);
+        tr.appendChild(employeeButtons);
+        
+
+        // Return the table row
+        return tr;
+    };
+
+    // Helper function to render content when there are no authors
+    const renderEmptyE = () => {
+        const alertDiv = document.createElement('div');
+        alertDiv.classList.add('alert', 'alert-danger');
+        alertDiv.textContent = 'No Jobs Exist Contact Management';
+        alertDiv.style.marginRight = '5px';
+        return alertDiv;
+    };
+
+    const renderEmployeesList = (rows) => {
+
+        if (rows.length) {
+            if (document.getElementById('removeMe')) {
+                document.getElementById('removeMe').remove();
+            }
+            rows.forEach((row) => employeesList.append(row));
+        } else {
+            document.querySelector('.employee-container').appendChild(renderEmpty());
+        }
+    };
+    // Get the list of jobs
+    getEmployee();
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Jobs Logic
+
+    const nameJInput = document.getElementById('user');
     const jobsList = document.getElementById('jobsList');
 
     // Grab all the jobs
@@ -15,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     rowsToAdd.push(createJobsRow(data[i]));
                 }
                 renderJobsList(rowsToAdd);
-                nameInput.value = '';
             })
             .catch((err) => console.err('Error:', err));
     };
@@ -43,8 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const jobButtons = document.createElement('div');
         jobButtons.innerHTML = `
         <div class = "jobButtons">
-        <button class='asignJob'> Asign Job</button>
-        <button class='completeJob'> Complete</button>
+        <button class='asignJob'> Asign Job</td>
+        <button class='completeJob'> Complete</td>
         </div>
         `;
         
@@ -57,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Helper function to render content when there are no authors
-    const renderEmpty = () => {
+    const renderEmptyJ = () => {
         const alertDiv = document.createElement('div');
         alertDiv.classList.add('alert', 'alert-danger');
         alertDiv.textContent = 'No Jobs Exist Contact Management';
