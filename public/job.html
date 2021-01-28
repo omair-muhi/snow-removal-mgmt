@@ -24,16 +24,15 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                  <a class="nav-link active" href="managerOverview.html">Manager View</a>
+                  <a class="nav-link" href="managerOverview.html">Manager View</a>
                   <a class="nav-link" href="crew.html">Crews</a>
-                  <a class="nav-link" href="jobs.html">Jobs </a>
+                  <a class="nav-link Active" href="job.html">Jobs </a>
+
+                  <!--update with correct employee file-->
+
                   <a class="nav-link" href="employees.html">Employees</a>
               </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
       </div>
   </nav>
 
@@ -69,37 +68,48 @@
             <tdid id = "client_name"></td>
             <tdid id = "location"></td>
           </tr>
+          <tr>
+            <th scope="row">3</th>
+            <tdid id = "client_name"></td>
+            <tdid id = "location"></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <tdid id = "client_name"></td>
+            <tdid id = "location"></td>
+          </tr>
   
         </tbody>
       </table>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Add Job
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Add</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-    
+      <br> 
       <br>
+<!-- post form in order to add job once created-->
+<!--test-->
+      <form action="" method="POST" role="form">
+
+        <div class="form-group">
+          <label for="">Client Name</label>
+          <input type="text" class="form-control" id="client_name" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="">Location</label>
+          <input type="text" class="form-control" id="Location" placeholder="">
+        </div>
+      </form>
+      <br>
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+          <span class="fa fa-fire"></span> Add Job</button>
+      </div>
+    
+      <br><br>
+      <br>
+
+
+      <!-- Move Completed jobs here -->
+      <!-- Are jobs moved from the Manager view or here?-->
 
       <h3>Completed Jobs</h3>
       <br>
@@ -122,6 +132,16 @@
             </tr>
             <tr>
               <th scope="row">2</th>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
               <td></td>
               <td></td>
             </tr>
