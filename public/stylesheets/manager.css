@@ -8,6 +8,7 @@
     position:relative;
     margin-top:20vh;
     height:80vh;
+    width: 100%;
 }
 
 table{
@@ -15,8 +16,25 @@ table{
     margin-left:2.5vw;
     margin-right:2.5vw;
 }
+/* Employees Data and Controls */
 
-/* Job Data and Controls */
+.tableRowE{
+  width:110%;
+  height:10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 3vw;
+}
+
+.employeeInfo{
+    margin-left:3vw;
+}
+
+.employeeButtons {
+}
+
+/* Jobs Data and Controls */
 
 .jobs-text {   
     margin-right:1vw;

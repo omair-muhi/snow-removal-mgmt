@@ -27,23 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
         tr.setAttribute('data-employee', JSON.stringify(employeeData));
         // Set each employee's ID on the element itself
         tr.id = employeeData.id;
-        tr.className = "tableRow";
+        tr.className = "tableRowE";
     
         // Add employee Info
         const employeeInfo = document.createElement('div');
+        employeeInfo.className = 'employeeInfo';
         employeeInfo.innerHTML = `
-        <div class = "employeeInfo">
         <td> ${employeeData.Name}</td>
-        </div>
         `;
         
         // "Mark employee Complete or Asign to Crew
 
+
         const employeeButtons = document.createElement('div');
+        employeeButtons.className = 'employeeButtons';
         employeeButtons.innerHTML = `
-        <div class = "employeeButtons">
-        <button class='asignEmployee'> Asign Employee</button>
-        </div>
+        <button class='employeeButtons'> Asign Employee</button>
         `;
         
         tr.appendChild(employeeInfo);
