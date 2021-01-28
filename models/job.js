@@ -1,28 +1,25 @@
-const Sequelize = require("sequelize");
-// Creating our Job Model
-module.exports = function (sequelize, DataTypes) {
-  const Job = sequelize.define("Job", {
-    // Name cannot be null
-    id: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    client_name: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: false,
-      freezeTableName: true
-    },
-
-    location: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: true,
-      freezeTableName: true
-    },
-  }, {
-    freezeTableName: true
-  });
-  return Job;
+'use strict';
+const {
+    Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+    class Job extends Model {
+        /**
+         * Helper method for defining associations.
+         * This method is not a part of Sequelize lifecycle.
+         * The `models/index` file will call this method automatically.
+         */
+        static associate(models) {
+            // define association here
+        }
+    };
+    Job.init({
+        client_name: DataTypes.STRING,
+        location: DataTypes.STRING,
+        active: DataTypes.BOOLEAN
+    }, {
+        sequelize,
+        modelName: 'Job',
+    });
+    return Job;
 };
