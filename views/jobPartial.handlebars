@@ -1,0 +1,13 @@
+<tbody id="tbody">
+    {{#each jobs}}
+    {{#if dataValues.active}}
+    <tr>
+        <th scope="row">{{dataValues.id}}</th>
+        <td>
+            <p id="client_name">{{dataValues.client_name}}.</p>
+        </td>
+        <td id="location">{{dataValues.location}}.</td>
+    </tr>
+    {{/if}}
+    {{/each}}
+</tbody>
