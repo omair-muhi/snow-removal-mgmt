@@ -3,7 +3,6 @@
 module.exports = {
     up: function(queryInterface, Sequelize) {
         return queryInterface.bulkInsert('job', [{
-
                 client_name: 'Jack Fereday',
                 location: '33 Simon St.',
                 active: true,
@@ -12,7 +11,6 @@ module.exports = {
 
             },
             {
-
                 client_name: 'Nick Bolson',
                 location: '3323 Gerari Rd.',
                 active: false,
@@ -21,7 +19,6 @@ module.exports = {
 
             },
             {
-
                 client_name: 'Lisa Dorsy',
                 location: '213 Lake St.',
                 active: true,
