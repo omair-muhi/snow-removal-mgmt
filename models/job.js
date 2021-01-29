@@ -12,14 +12,17 @@ module.exports = function (sequelize, DataTypes) {
       type: Sequelize.STRING,
       allowNull: false,
       unique: false,
-      freezeTableName: true
     },
 
     location: {
       type: Sequelize.STRING,
       allowNull: false,
       unique: true,
-      freezeTableName: true
+    },
+
+    active: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
 
     crew_id: {
