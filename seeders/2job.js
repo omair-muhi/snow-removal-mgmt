@@ -2,7 +2,7 @@
 
 module.exports = {
     up: function(queryInterface, Sequelize) {
-        return queryInterface.bulkInsert('job', [{
+        return queryInterface.bulkInsert('jobs', [{
                 client_name: 'Jack Fereday',
                 location: '33 Simon St.',
                 active: true,
@@ -26,6 +26,6 @@ module.exports = {
         ], {});
     },
     down: (queryInterface, Sequelize) => {
-        return Promise.all([queryInterface.bulkDelete('job', {}, null)]);
+        return Promise.all([queryInterface.bulkDelete('jobs', {}, null)]);
     }
 };
