@@ -8,24 +8,6 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        // a foreign key from Employee table
-        employee_id: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: "Employee",
-                key: 'id',
-                allowNull: true
-            }
-        },
-        // a foreign key from Job table
-        job_id: {
-            type: Sequelize.INTEGER,
-            references: {
-                model: "Jobs",
-                key: 'id',
-                allowNull: true
-            }
-        }
     }, {
         freezeTableName: true
     });

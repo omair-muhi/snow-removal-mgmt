@@ -116,10 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add crew Info
         const crewInfo = document.createElement('div');
         crewInfo.className = 'crewInfo';
-        crewData.employee_id = author || '';
-    if (authorId) {
-      authorId = `/?author_id=${authorId}`;
-    }
+
         $.get(`/api/crewEmployees${crewData.employee_id}`, {
 
         })
