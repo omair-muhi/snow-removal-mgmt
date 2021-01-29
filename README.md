@@ -6,18 +6,18 @@ This is a full-stack web application that allows managers and employees of a sno
 ## Table of Contents (Optional)
 
 * [Usage](#usage)
-* [Screenshot] (#screenshot)
+* [Screenshot](#screenshot)
 * [Credits](#credits)
 * [License](#license)
 
 ## Usage 
-* To install: `npm install`
-* To create all tables: `npx sequelize-cli db:migrate`
-* To seed all tables: `npx sequelize-cli db:seed:all`
-* To undo seeds: `npx sequelize-cli db:seed:undo:all`
-* To delete all tables: `npx sequelize-cli db:migrate:undo:all`
-* To run: `npm run start`
-* Access at: 
+### Dev Environment
+1. `npm install`
+2. `source schema.sql`
+3. `npm run start`
+4. `npx sequelize-cli db:seed:all`
+
+Access at: 
 
 ## Screenshot 
 
