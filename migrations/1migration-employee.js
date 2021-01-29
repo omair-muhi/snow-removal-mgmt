@@ -1,41 +1,39 @@
-
 'use strict';
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Employee', {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('Employees', {
       id: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        autoIncrement: true
+        type: Sequelize.INTEGER
       },
       Name: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: false,
+        type: Sequelize.STRING
       },
-
       Title: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: false,
+        type: Sequelize.STRING
       },
       Contact: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
+        type: Sequelize.STRING
       },
       Admin: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
+        type: Sequelize.BOOLEAN
       },
-      // Timestamps
-      createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE,
-    }, {
-      freezeTableName: true
+      assigned: {
+        type: Sequelize.BOOLEAN
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
     });
   },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Employee');
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('Employees');
   }
 };

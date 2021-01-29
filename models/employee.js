@@ -1,35 +1,27 @@
-const Sequelize = require("sequelize");
-// Creating our Employee Model
-module.exports = function(sequelize, DataTypes) {
-  const Employee = sequelize.define("Employee", {
-    // Name cannot be null
-    id: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    Name: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: false,
-    },
-    
-    Title: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: false,
-    },
-    Contact: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    Admin: {
-      type: Sequelize.BOOLEAN,
-      allowNull: false,
-    }
-  },{
-    freezeTableName: true
-  });
-  return Employee;
+'use strict';
+const {
+    Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+    class Employee extends Model {
+        /**
+         * Helper method for defining associations.
+         * This method is not a part of Sequelize lifecycle.
+         * The `models/index` file will call this method automatically.
+         */
+        static associate(models) {
+            // define association here
+        }
+    };
+    Employee.init({
+        Name: DataTypes.STRING,
+        Title: DataTypes.STRING,
+        Contact: DataTypes.STRING,
+        Admin: DataTypes.BOOLEAN,
+        assigned: DataTypes.BOOLEAN
+    }, {
+        sequelize,
+        modelName: 'Employee',
+    });
+    return Employee;
 };
