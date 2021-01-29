@@ -9,6 +9,26 @@
 }
 
 .form-group{
-  pborder-style: solid;
+  border-style: groove;
+  color: black;
   
+  
+}
+
+.table{
+  border-style: groove;
+  color: black;
+}
+
+.thead{
+  border-style: groove;
+  color: black;
+}
+
+html,
+body {
+    height: 100%;
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
