@@ -6,11 +6,11 @@ const exphbs = require('express-handlebars');
 module.exports = (app) => {
     // GET route for getting all employees
     app.get('/api/employees/', (req, res) => {
-        db.employee.findAll({}).then((dbPost) => res.json(dbPost));
+        db.Employee.findAll({}).then((dbPost) => res.json(dbPost));
     });
     // GET route for retrieving a single employee
     app.get('/api/employees/:id', (req, res) => {
-        db.employee.findOne({
+        db.Employee.findOne({
             where: {
                 id: req.params.id,
             },
@@ -19,7 +19,7 @@ module.exports = (app) => {
     // POST route for creating a new employee
     app.post('/api/employees', (req, res) => {
         console.log(req.body);
-        db.employee.create({
+        db.Employee.create({
             employee_id: req.body.employee_id,
             name: req.body.name,
             title: req.body.title,
@@ -28,7 +28,7 @@ module.exports = (app) => {
     });
     // DELETE route for deleting employee
     app.delete('/api/employees/:id', (req, res) => {
-        db.employee.destroy({
+        db.Employee.destroy({
             where: {
                 id: req.params.id,
             },
@@ -36,7 +36,7 @@ module.exports = (app) => {
     });
     // PUT route for updating employee
     app.put('/api/employees', (req, res) => {
-        db.employee.update(req.body, {
+        db.Employee.update(req.body, {
             where: {
                 id: req.body.id,
             },
