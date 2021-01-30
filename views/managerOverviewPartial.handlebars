@@ -1,12 +1,8 @@
 <div class="col-md-4">
     {{#each employees}}
-    {{#unless dataValues.Admin}}
-    {{#unless dataValues.assigned}}
     <ul class="list-group list-group-horizontal">
         <li class="list-group-item">{{dataValues.Name}}</li>
     </ul>
-    {{/unless}}
-    {{/unless}}
     {{/each}}
 </div>
 <div class="col-md-4">
@@ -17,13 +13,10 @@
     {{/each}}
 </div>
 <div class="col-md-4">
-    {{#each employees}}
-    {{#unless dataValues.Admin}}
-    {{#unless dataValues.assigned}}
+    {{#each keyMap}}
     <ul class="list-group list-group-horizontal">
-        <button type="submit" class="btn btn-primary add-to-crew mb-3" data-id="{{dataValues.id}}">Assign</button>
+        <button type="submit" class="btn btn-primary add-to-crew mb-3" data-emp-id="{{employee_id}}"
+            data-job-id="{{job_id}}">Assign</button>
     </ul>
-    {{/unless}}
-    {{/unless}}
     {{/each}}
 </div>
