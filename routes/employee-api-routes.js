@@ -37,14 +37,9 @@ module.exports = (app) => {
         }).then((dbPost) => res.json(dbPost));
     });
     // PUT route for updating employee
-<<<<<<< HEAD
-    app.put('/api/employees', (req, res) => {
-        db.Employee.update(req.body, {
-=======
     app.put('/api/employees/:id', (req, res) => {
         console.log("Hit /api/employees/:id end-point!");
         db.Employee.update({ assigned: req.body.assigned }, {
->>>>>>> stable-f548df9
             where: {
                 id: req.params.id,
             },
