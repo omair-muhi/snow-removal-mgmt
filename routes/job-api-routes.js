@@ -36,10 +36,10 @@ module.exports = (app) => {
     });
     // PUT route for updating jobs
     app.put('/api/jobs/:id', (req, res) => {
-        console.log("!!!GOT THE JOBS PUT ENDPOINT!!!!")
-        console.log("req.params.id: ", req.params.id);
-        console.log("req.body.active: ", req.body.active);
-        db.Job.update({ active: req.body.active }, {
+        console.log(req.body);
+        db.Job.update({
+            active: req.body.active
+        }, {
             where: {
                 id: req.params.id
             },

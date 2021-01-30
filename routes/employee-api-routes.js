@@ -37,10 +37,11 @@ module.exports = (app) => {
         }).then((dbPost) => res.json(dbPost));
     });
     // PUT route for updating employee
-    app.put('/api/employees', (req, res) => {
-        db.employee.update(req.body, {
+    app.put('/api/employees/:id', (req, res) => {
+        console.log("Hit /api/employees/:id end-point!");
+        db.Employee.update({ assigned: req.body.assigned }, {
             where: {
-                id: req.body.id,
+                id: req.params.id,
             },
         }).then((dbPost) => res.json(dbPost));
     });
