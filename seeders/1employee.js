@@ -29,6 +29,15 @@ module.exports = {
                 assigned: false,
                 createdAt: new Date(),
                 updatedAt: new Date()
+            },
+            {
+                Name: 'Joe Don',
+                Title: 'Snow Crew Member',
+                Contact: '314-952-4561',
+                Admin: false,
+                assigned: false,
+                createdAt: new Date(),
+                updatedAt: new Date()
             }
         ], {});
     },
