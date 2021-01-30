@@ -4,10 +4,14 @@ const Sequelize = require('sequelize');
 
 const basename = path.basename(module.filename);
 let env;
-if (process.env.JAWSDB_URL)
+console.log("--------Running index.js!------");
+console.info("");
+if (process.env.JAWSDB_URL) {
     env = 'production';
-else
+    console.log("GOT JAWSDB URL");
+} else {
     env = process.env.NODE_ENV || 'development';
+}
 const config = require(`${__dirname}/../config/config.json`)[env];
 const db = {};
 
