@@ -8,11 +8,7 @@ module.exports = {
                 Contact: '416-225-8787',
                 Admin: false,
                 assigned: false,
-<<<<<<< HEAD:seeders/2employee.js
-                CrewId:1,
-=======
                 // CrewId:1,
->>>>>>> stable-f548df9:seeders/3employee.js
                 createdAt: new Date(),
                 updatedAt: new Date(),
 
@@ -23,11 +19,7 @@ module.exports = {
                 Contact: '248-558-7812',
                 Admin: true,
                 assigned: true,
-<<<<<<< HEAD:seeders/2employee.js
-                CrewId:2,
-=======
                 // CrewId:2,
->>>>>>> stable-f548df9:seeders/3employee.js
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -37,11 +29,7 @@ module.exports = {
                 Contact: '313-852-4561',
                 Admin: false,
                 assigned: false,
-<<<<<<< HEAD:seeders/2employee.js
-                CrewId:2,
-=======
                 // CrewId:2,
->>>>>>> stable-f548df9:seeders/3employee.js
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -51,11 +39,7 @@ module.exports = {
                 Contact: '323-842-4561',
                 Admin: false,
                 assigned: false,
-<<<<<<< HEAD:seeders/2employee.js
-                CrewId:3,
-=======
                 // CrewId:3,
->>>>>>> stable-f548df9:seeders/3employee.js
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
