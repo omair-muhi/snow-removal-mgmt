@@ -1,4 +1,6 @@
+const model = require('../models/');
 const Sequelize = require("sequelize");
+
 // Creating our Employee Model
 module.exports = function (sequelize, DataTypes) {
   const Employee = sequelize.define("Employee", {
@@ -28,16 +30,23 @@ module.exports = function (sequelize, DataTypes) {
       type: Sequelize.BOOLEAN,
       allowNull: false,
     },
-    crew_id: {
-      type: Sequelize.INTEGER,
-      references: {
-        model: "Crew",
-        key: 'id',
-        allowNull: true
-      }
+    assigned: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      default:false
     },
+
   }, {
     freezeTableName: true
   });
+
+  Employee.associate = model => {
+    Employee.belongsTo(model.Crew, {
+      foreignKey: {
+        allowNull:true
+      }
+    });
+  };
+
   return Employee;
 };
