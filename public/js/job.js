@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
     // UPDATE
     const updateActive = document.querySelectorAll('.job-done');
-    // console.log(updateDevoured);
+
     // Set up the event listener for the create button
     if (updateActive) {
         updateActive.forEach((button) => {
             button.addEventListener('click', (e) => {
-                // Grabs the id of the non-devoured burger
+
                 const id = e.target.getAttribute('data-id');
                 const newActiveState = {
                     active: false,

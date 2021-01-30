@@ -38,7 +38,8 @@ module.exports = (app) => {
     app.put('/api/jobs/:id', (req, res) => {
         console.log(req.body);
         db.Job.update({
-            active: req.body.active
+            active: req.body.active,
+            assigned: req.body.assigned
         }, {
             where: {
                 id: req.params.id
