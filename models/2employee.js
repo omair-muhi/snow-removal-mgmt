@@ -1,4 +1,3 @@
-  
 const model = require('../models/');
 const Sequelize = require("sequelize");
 
@@ -26,6 +25,7 @@ module.exports = function (sequelize, DataTypes) {
       type: Sequelize.STRING,
       allowNull: false,
       unique: true,
+
     },
     Admin: {
       type: Sequelize.BOOLEAN,

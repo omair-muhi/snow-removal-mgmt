@@ -33,7 +33,7 @@ $(document).ready(function () {
                 console.log(res);
 
                 if (res.Admin) {
-                    window.location.replace("/managerOverview.html");
+                    window.location.replace("/managerOverviewMain");
                 }
                 else if (res) {
                     alert(`${res.Name} does not have access to this Page`);
