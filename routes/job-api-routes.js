@@ -63,6 +63,5 @@ module.exports = (app) => {
             app.engine('handlebars', exphbs({ defaultLayout: 'jobMain' }));
             res.render('jobPartial', hbsObject);
         });
-
     }
 };

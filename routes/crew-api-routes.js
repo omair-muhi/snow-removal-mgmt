@@ -1,6 +1,6 @@
 // Requiring our Crew model
 const db = require('../models');
-
+const exphbs = require('express-handlebars');
 // Routes - Crews - code adapted from Week #14 Activity #12 Blog CRUD
 // =============================================================
 module.exports = (app) => {
@@ -50,4 +50,20 @@ module.exports = (app) => {
             },
         }).then((dbPost) => res.json(dbPost));
     });
+    // route for HBS    
+    app.get('/crewMain', (req, res) => {
+        console.log("Hit /crewMain end-point!");
+        refreshCrews(res);
+    });
+    const refreshCrews = (res) => {
+        db.Crew.findAll({}).then((dbPost) => {
+            console.log(dbPost);
+            const hbsObject = {
+                crews: dbPost,
+            };
+            // console.log(hbsObject.jobs[0].dataValues);
+            app.engine('handlebars', exphbs({ defaultLayout: 'crewMain' }));
+            res.render('crewPartial', hbsObject);
+        });
+    }
 };
