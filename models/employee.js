@@ -17,8 +17,14 @@ module.exports = (sequelize, DataTypes) => {
         Name: DataTypes.STRING,
         Title: DataTypes.STRING,
         Contact: DataTypes.STRING,
-        Admin: DataTypes.BOOLEAN,
-        assigned: DataTypes.BOOLEAN
+        Admin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+        assigned: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        }
     }, {
         sequelize,
         modelName: 'Employee',
