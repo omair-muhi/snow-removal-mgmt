@@ -8,6 +8,7 @@ module.exports = (app) => {
     app.get('/api/crews/', (req, res) => {
         db.Crew.findAll({}).then((dbPost) => res.json(dbPost));
     });
+    
     // GET route for retrieving a single crew
     app.get('/api/crews/:id', (req, res) => {
         db.Crew.findOne({
