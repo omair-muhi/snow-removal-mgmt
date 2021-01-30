@@ -50,6 +50,30 @@ module.exports = (app) => {
             },
         }).then((dbPost) => res.json(dbPost));
     });
+    // PUT route for freeing employee
+    app.put('/api/crews/freeEmployee/:jobId', (req, res) => {
+        db.Crew.findOne({
+            where: {
+                job_id: req.params.jobId,
+            },
+        }).then((doneCrewEntry) => {
+            console.log(doneCrewEntry);
+            // free employee
+            db.Employee.update({ assigned: req.body.assigned }, {
+                where: {
+                    id: doneCrewEntry.dataValues.employee_id,
+                },
+            }).then((dbPost) => {
+                // remove this crew entry
+                db.Crew.destroy({
+                    where: {
+                        id: doneCrewEntry.dataValues.id,
+                    },
+                }).then((dbPost) => res.json(dbPost));
+            });
+        });
+    });
+
     // route for HBS    
     app.get('/crewMain', (req, res) => {
         console.log("---------------Hit /crewMain end-point!");
