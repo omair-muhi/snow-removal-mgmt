@@ -19,12 +19,13 @@ module.exports = (app) => {
     // POST route for creating a new employee
     app.post('/api/employees', (req, res) => {
         console.log(req.body);
-        db.employee.create({
-            employee_id: req.body.employee_id,
-            name: req.body.name,
-            title: req.body.title,
-            contact: req.body.contact,
-        }).then((dbPost) => res.json(dbPost));
+        db.Employee.create({
+            Name: req.body.name,
+            Title: req.body.title,
+            Contact: req.body.contact,
+        }).then((dbPost) => {
+            refreshEmployees(res);
+        });
     });
     // DELETE route for deleting employee
     app.delete('/api/employees/:id', (req, res) => {
@@ -45,14 +46,18 @@ module.exports = (app) => {
     // route for HBS    
     app.get('/employeeMain', (req, res) => {
         console.log("Hit /employeeMain end-point!");
+        refreshEmployees(res);
+    });
+    // utility function
+    const refreshEmployees = (res) => {
         db.Employee.findAll({}).then((dbPost) => {
             // console.log(dbPost[0].dataValues);
             const hbsObject = {
                 employees: dbPost,
             };
-            console.log(hbsObject.employees[0].dataValues);
+            // console.log(hbsObject.employees[0].dataValues);
             app.engine('handlebars', exphbs({ defaultLayout: 'employeeMain' }));
             res.render('employeePartial', hbsObject);
         });
-    });
+    }
 };
