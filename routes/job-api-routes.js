@@ -35,25 +35,22 @@ module.exports = (app) => {
         }).then((dbPost) => res.json(dbPost));
     });
     // PUT route for updating jobs
-    app.put('/api/jobs', (req, res) => {
-        db.Job.update(req.body, {
+    app.put('/api/jobs/:id', (req, res) => {
+        console.log("!!!GOT THE JOBS PUT ENDPOINT!!!!")
+        console.log("req.params.id: ", req.params.id);
+        console.log("req.body.active: ", req.body.active);
+        db.Job.update({ active: req.body.active }, {
             where: {
-                id: req.body.id,
+                id: req.params.id
             },
-        }).then((dbPost) => res.json(dbPost));
+        }).then((dbPost) => {
+            refreshJobs(res);
+        });
     });
     // route for HBS    
     app.get('/jobMain', (req, res) => {
         console.log("Hit /jobMain end-point!");
-        db.Job.findAll({}).then((dbPost) => {
-            console.log(dbPost);
-            const hbsObject = {
-                jobs: dbPost,
-            };
-            // console.log(hbsObject.jobs[0].dataValues);
-            app.engine('handlebars', exphbs({ defaultLayout: 'jobMain' }));
-            res.render('jobPartial', hbsObject);
-        });
+        refreshJobs(res);
     });
     const refreshJobs = (res) => {
         db.Job.findAll({}).then((dbPost) => {

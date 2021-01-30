@@ -4,7 +4,7 @@
             <th scope="col">#</th>
             <th scope="col">Client Name</th>
             <th scope="col">Location</th>
-            <th scope="col">Estimated Completion time</th>
+            <th scope="col">Status</th>
         </tr>
     </thead>
     <tbody id="tbody">
@@ -18,6 +18,9 @@
             <td id="location">{{dataValues.location}}.</td>
             <td>
                 <div class="spinner-border"></div>
+            </td>
+            <td>
+                <button type="submit" class="btn btn-primary mt-2 job-done" data-id="{{dataValues.id}}">Done!</button>
             </td>
         </tr>
         {{/if}}
@@ -38,7 +41,7 @@
             <th scope="col">#</th>
             <th scope="col">Client Name</th>
             <th scope="col">Location</th>
-            <th scope="col">Completion</th>
+            <th scope="col">Status</th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +53,11 @@
                 <p id="client_name">{{dataValues.client_name}}.</p>
             </td>
             <td id="location">{{dataValues.location}}.</td>
+            <td>
+                <span class="badge badge-success">
+                    Completed!
+                </span>
+            </td>
         </tr>
         {{/unless}}
         {{/each}}
