@@ -45,13 +45,13 @@ module.exports = function (sequelize, DataTypes) {
     freezeTableName: true
   });
 
-  Employee.associate = model => {
-    Employee.belongsTo(model.Crew, {
-      foreignKey: {
-        allowNull:true
-      }
-    });
-  };
+  // Employee.associate = model => {
+  //   Employee.belongsTo(model.Crew, {
+  //     foreignKey: {
+  //       allowNull:true
+  //     }
+  //   });
+  // };
 
   return Employee;
 };

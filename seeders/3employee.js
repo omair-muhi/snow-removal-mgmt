@@ -8,7 +8,7 @@ module.exports = {
                 Contact: '416-225-8787',
                 Admin: false,
                 assigned: false,
-                CrewId:1,
+                // CrewId:1,
                 createdAt: new Date(),
                 updatedAt: new Date(),
 
@@ -19,7 +19,7 @@ module.exports = {
                 Contact: '248-558-7812',
                 Admin: true,
                 assigned: true,
-                CrewId:2,
+                // CrewId:2,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -29,7 +29,7 @@ module.exports = {
                 Contact: '313-852-4561',
                 Admin: false,
                 assigned: false,
-                CrewId:2,
+                // CrewId:2,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -39,7 +39,7 @@ module.exports = {
                 Contact: '323-842-4561',
                 Admin: false,
                 assigned: false,
-                CrewId:3,
+                // CrewId:3,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },

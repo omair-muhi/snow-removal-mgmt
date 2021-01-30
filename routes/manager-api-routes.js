@@ -13,7 +13,7 @@ module.exports = (app) => {
                 assigned: false
             }
         }).then((allEmployees) => {
-            // console.log(dbPost[0].dataValues);
+            // console.log(allEmployees);
             // console.log(hbsObject.employees[0].dataValues);
             db.Job.findAll({
                 where: {
@@ -21,9 +21,11 @@ module.exports = (app) => {
                     assigned: false
                 }
             }).then((allJobs) => {
+                console.log(allJobs)
                 // TEST CODE
                 // createEmployeeJobMap(allEmployees, allJobs);
                 // TEST CODE
+                console.log(allJobs)
                 const hbsObject = {
                     employees: allEmployees,
                     jobs: allJobs,
