@@ -1,22 +1,62 @@
-<div class="col-md-4">
-    {{#each employees}}
-    <ul class="list-group list-group-horizontal">
-        <li class="list-group-item">{{dataValues.Name}}</li>
-    </ul>
-    {{/each}}
+<div class="col-md-3">
+        <div class="employees-container">
+            <a href="job.html">
+                <h3>Employees</h1>
+            </a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th><i class="fas fa-male fa-lg"></i></th>
+                    </tr>
+                </thead>
+            </table>
+            {{#each employees}}
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">{{dataValues.Name}}</li>
+            </ul>
+            {{/each}}
+        </div>
+    </div>
+
+<div class="col-md-5">
+    <div class="crews-container">
+        <h3 class="manager-headers">Crews</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-people-arrows fa-lg"></i></th>
+                        <th>Name</th>
+                        <th>Estimated End-Time</th>
+                        <th>Assigned Employees</th>
+                    </tr>
+                </thead>
+            </table>
+            {{#each keyMap}}
+            <ul class="list-group list-group-horizontal">
+                <button type="submit" class="btn btn-primary add-to-crew mb-3" data-emp-id="{{employee_id}}"
+                    data-job-id="{{job_id}}">Assign</button>
+            </ul>
+            {{/each}}
+    </div>
 </div>
-<div class="col-md-4">
-    {{#each jobs}}
-    <ul class="list-group list-group-horizontal">
-        <li class="list-group-item">{{dataValues.location}}</li>
-    </ul>
-    {{/each}}
-</div>
-<div class="col-md-4">
-    {{#each keyMap}}
-    <ul class="list-group list-group-horizontal">
-        <button type="submit" class="btn btn-primary add-to-crew mb-3" data-emp-id="{{employee_id}}"
-            data-job-id="{{job_id}}">Assign</button>
-    </ul>
-    {{/each}}
+
+
+<div class="col-md-3">
+    <div class="jobs-container">
+        <h3>Jobs</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-briefcase fa-lg"></i></th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+            </table>
+            {{#each jobs}}
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">{{dataValues.location}}</li>
+            </ul>
+            {{/each}}
+    </div>
 </div>
