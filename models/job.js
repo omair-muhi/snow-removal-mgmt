@@ -16,7 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     Job.init({
         client_name: DataTypes.STRING,
         location: DataTypes.STRING,
-        active: DataTypes.BOOLEAN
+        active: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        }
     }, {
         sequelize,
         modelName: 'Job',

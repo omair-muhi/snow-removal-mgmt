@@ -36,6 +36,27 @@
             <p class="lead"></p>
         </div>
         <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <form action="/api/jobs" method="POST">
+                        <div class="form-group">
+                            <label for="client_name">Client Name:</label>
+                            <input type="text" class="form-control" id="client_name" placeholder="Enter client name"
+                                name="client_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location:</label>
+                            <input type="text" class="form-control" id="location" placeholder="Enter location"
+                                name="location">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Create Job</button>
+                    </form>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
         <h3>Active Jobs</h3>
         <br>
         {{{body}}}

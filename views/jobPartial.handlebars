@@ -23,24 +23,6 @@
 </table>
 <br>
 <br>
-<!-- post form in order to add job once created-->
-<!--test-->
-<form action="" method="POST" role="form">
-    <div class="form-group">
-        <label for="">Client Name</label>
-        <input type="text" class="form-control" id="client_name" placeholder="">
-    </div>
-
-    <div class="form-group">
-        <label for="">Location</label>
-        <input type="text" class="form-control" id="Location" placeholder="">
-    </div>
-</form>
-<br>
-<div class="text-right">
-    <button type="submit" class="btn btn-primary btn-md" id="add-btn">
-        <span class="fa fa-fire"></span> Add Job</button>
-</div>
 <br><br>
 <br>
 <!-- Move Completed jobs here -->
@@ -57,26 +39,6 @@
         </tr>
     </thead>
     <tbody>
-        {{!-- <tr>
-            <th scope="row">1</th>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td></td>
-            <td></td>
-        </tr> --}}
         {{#each jobs}}
         {{#unless dataValues.active}}
         <tr>
