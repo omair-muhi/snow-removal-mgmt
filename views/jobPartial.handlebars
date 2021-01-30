@@ -1,60 +1,71 @@
-<table class="table">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Client Name</th>
-            <th scope="col">Location</th>
-            <th scope="col">Status</th>
-        </tr>
-    </thead>
-    <tbody id="tbody">
-        {{#each jobs}}
-        {{#if dataValues.active}}
-        <tr>
-            <th scope="row">{{dataValues.id}}</th>
-            <td>
-                <p id="client_name">{{dataValues.client_name}}.</p>
-            </td>
-            <td id="location">{{dataValues.location}}.</td>
-            <td>
-                <div class="spinner-border"></div>
-            </td>
-            <td>
-                <button type="submit" class="btn btn-primary mt-2 job-done" data-id="{{dataValues.id}}">Done!</button>
-            </td>
-        </tr>
-        {{/if}}
-        {{/each}}
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-md-8">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Client Name</th>
+                    <th scope="col">Location</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                {{#each jobs}}
+                {{#if dataValues.active}}
+                <tr>
+                    <th scope="row">{{dataValues.id}}</th>
+                    <td>
+                        <p id="client_name">{{dataValues.client_name}}.</p>
+                    </td>
+                    <td id="location">{{dataValues.location}}.</td>
+                </tr>
+                {{/if}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="container mt-5">
+            {{#each jobs}}
+            {{#if dataValues.active}}
+            <div class="row">
+                <button type="button" class="btn btn-primary mt-2 mb-4 job-done"
+                    data-id="{{dataValues.id}}">Done!</button>
+            </div>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
 <!-- Move Completed jobs here -->
 <!-- Are jobs moved from the Manager view or here?-->
-<h3>Completed Jobs</h3>
-<table class="table">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Client Name</th>
-            <th scope="col">Location</th>
-            <th scope="col">Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each jobs}}
-        {{#unless dataValues.active}}
-        <tr>
-            <th scope="row">{{dataValues.id}}</th>
-            <td>
-                <p id="client_name">{{dataValues.client_name}}.</p>
-            </td>
-            <td id="location">{{dataValues.location}}.</td>
-            <td>
-                <span class="badge badge-success">
-                    Completed!
-                </span>
-            </td>
-        </tr>
-        {{/unless}}
-        {{/each}}
-    </tbody>
-</table>
+<div class="row">
+    <h3>Completed Jobs</h3>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Client Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each jobs}}
+            {{#unless dataValues.active}}
+            <tr>
+                <th scope="row">{{dataValues.id}}</th>
+                <td>
+                    <p id="client_name">{{dataValues.client_name}}.</p>
+                </td>
+                <td id="location">{{dataValues.location}}.</td>
+                <td>
+                    <span class="badge badge-success">
+                        Completed!
+                    </span>
+                </td>
+            </tr>
+            {{/unless}}
+            {{/each}}
+        </tbody>
+    </table>
+</div>
