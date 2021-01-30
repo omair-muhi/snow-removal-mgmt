@@ -23,6 +23,7 @@ module.exports = (app) => {
             Name: req.body.name,
             Title: req.body.title,
             Contact: req.body.contact,
+            Admin: req.body.admin
         }).then((dbPost) => {
             refreshEmployees(res);
         });
