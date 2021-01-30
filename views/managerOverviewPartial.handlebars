@@ -1,0 +1,71 @@
+<div class="container-fluid managerCont">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="employee-container">
+                <a href="/employeeMain">
+                    <h3>Employees</h1>
+                </a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-male fa-lg"></i></th>
+                            <th>Name</th>
+                        </tr>
+                        {{#each employees}}
+                        <tr>
+                            <th scope="row">{{dataValues.id}}</th>
+                            <td>
+                                <p id="client_name">{{dataValues.Name}}.</p>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </thead>
+                    <tbody>
+                        <div id="employeesList" class="text-success">
+                        </div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="crews-container">
+                <a href="crew.html">
+                    <h3 class="manager-headers">Crews</h1>
+                </a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-people-arrows fa-lg"></i></th>
+                            <th>Name</th>
+                            <th>Estimated End-Time</th>
+                            <th>Assigned Employees</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div id="crewsList" class="crew-text text-success">
+                        </div>
+                        </a>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="jobs-container">
+                <a href="/jobMain">
+                    <h3>Jobs</h1>
+                </a>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-briefcase fa-lg"></i></th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div id="jobsList" class="jobs-text text-success mr-5">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

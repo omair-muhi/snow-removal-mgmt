@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
 
     // Getting references to our form and inputs
@@ -7,7 +7,7 @@ $(document).ready(function () {
     const idInput = $("input#id-input");
 
     // When the form is submitted, we validate there's an email and password entered
-    loginForm.on("submit", function (event) {
+    loginForm.on("submit", function(event) {
         event.preventDefault();
         const userData = {
             Name: nameInput.val().trim(),
@@ -26,30 +26,25 @@ $(document).ready(function () {
 
     function loginManager(Name, id) {
         $.post("/api/login", {
-            Name: Name,
-            id: id
-        })
+                Name: Name,
+                id: id
+            })
             .then((res) => {
                 console.log(res);
 
                 if (res.Admin) {
-                    window.location.replace("/managerOverview.html");
-                }
-                else if (res) {
+                    window.location.replace("/managerOverviewMain");
+                } else if (res) {
                     alert(`${res.Name} does not have access to this Page`);
                     window.location.replace("/");
-                }
-                else {
+                } else {
                     alert("Incorrect Name or Id! Try Again")
                 }
                 res.end();
 
             })
-            .catch(function (err) {
+            .catch(function(err) {
                 console.log(err);
             });
     };
 });
-
-
-
