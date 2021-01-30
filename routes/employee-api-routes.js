@@ -20,11 +20,13 @@ module.exports = (app) => {
     app.post('/api/employees', (req, res) => {
         console.log(req.body);
         db.Employee.create({
-            employee_id: req.body.employee_id,
-            name: req.body.name,
-            title: req.body.title,
-            contact: req.body.contact,
-        }).then((dbPost) => res.json(dbPost));
+            Name: req.body.name,
+            Title: req.body.title,
+            Contact: req.body.contact,
+            Admin: req.body.admin
+        }).then((dbPost) => {
+            refreshEmployees(res);
+        });
     });
     // DELETE route for deleting employee
     app.delete('/api/employees/:id', (req, res) => {
@@ -35,24 +37,34 @@ module.exports = (app) => {
         }).then((dbPost) => res.json(dbPost));
     });
     // PUT route for updating employee
+<<<<<<< HEAD
     app.put('/api/employees', (req, res) => {
         db.Employee.update(req.body, {
+=======
+    app.put('/api/employees/:id', (req, res) => {
+        console.log("Hit /api/employees/:id end-point!");
+        db.Employee.update({ assigned: req.body.assigned }, {
+>>>>>>> stable-f548df9
             where: {
-                id: req.body.id,
+                id: req.params.id,
             },
         }).then((dbPost) => res.json(dbPost));
     });
     // route for HBS    
     app.get('/employeeMain', (req, res) => {
         console.log("Hit /employeeMain end-point!");
+        refreshEmployees(res);
+    });
+    // utility function
+    const refreshEmployees = (res) => {
         db.Employee.findAll({}).then((dbPost) => {
             // console.log(dbPost[0].dataValues);
             const hbsObject = {
                 employees: dbPost,
             };
-            console.log(hbsObject.employees[0].dataValues);
+            // console.log(hbsObject.employees[0].dataValues);
             app.engine('handlebars', exphbs({ defaultLayout: 'employeeMain' }));
             res.render('employeePartial', hbsObject);
         });
-    });
+    }
 };

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+  
+>>>>>>> stable-f548df9
 const model = require('../models/');
 const Sequelize = require("sequelize");
 
@@ -25,21 +29,36 @@ module.exports = function (sequelize, DataTypes) {
       type: Sequelize.STRING,
       allowNull: false,
       unique: true,
+<<<<<<< HEAD
+=======
+
+>>>>>>> stable-f548df9
     },
     Admin: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
+<<<<<<< HEAD
+=======
+      defaultValue:false
+
+>>>>>>> stable-f548df9
     },
     assigned: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
+<<<<<<< HEAD
       default:false
+=======
+      defaultValue:false
+
+>>>>>>> stable-f548df9
     },
 
   }, {
     freezeTableName: true
   });
 
+<<<<<<< HEAD
   Employee.associate = model => {
     Employee.belongsTo(model.Crew, {
       foreignKey: {
@@ -50,3 +69,15 @@ module.exports = function (sequelize, DataTypes) {
 
   return Employee;
 };
+=======
+  // Employee.associate = model => {
+  //   Employee.belongsTo(model.Crew, {
+  //     foreignKey: {
+  //       allowNull:true
+  //     }
+  //   });
+  // };
+
+  return Employee;
+};
+>>>>>>> stable-f548df9

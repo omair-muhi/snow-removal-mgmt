@@ -9,7 +9,6 @@
     <title>Snow Removal Management</title>
     <!-- Bootstrap core CSS -->
     <link href="../../../stylesheets/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="../../../stylesheets/employee.css" rel="stylesheet">
 </head>
@@ -24,16 +23,45 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <div class="inner">
                 <nav class="nav nav-masthead justify-content-center">
-                    <a class="nav-link" href="managerOverview.html">Manager View</a>
-                    <a class="nav-link" href="crew.html">Crews</a>
+                    <a class="nav-link" href="/managerOverviewMain">Managers</a>
+                    <a class="nav-link" href="#">Employees</a>
+                    <a class="nav-link" href="/crewMain">Crews</a>
                     <a class="nav-link" href="/jobMain">Jobs</a>
                 </nav>
             </div>
         </div>
     </nav>
     <main role="main" class="container">
-        <div class="starter-template">
-            <h1>Employee listing</h1>
+        <h1 class="mb-5">Employee Overview</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <form action="/api/employees" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Contact:</label>
+                            <input type="text" class="form-control" id="contact" placeholder="Enter contact"
+                                name="contact">
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label" for="admin-check">
+                                <input type="checkbox" class="form-check-input" id="admin-check" name="admin"
+                                    value="true">Admin
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2 mb-5">Check-in</button>
+                    </form>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
         </div>
         <div class="container-fluid">
             <div class="row">

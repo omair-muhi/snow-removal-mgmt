@@ -22,7 +22,9 @@ module.exports = (app) => {
         db.Job.create({
             client_name: req.body.client_name,
             location: req.body.location,
-        }).then((dbPost) => res.json(dbPost));
+        }).then((dbPost) => {
+            refreshJobs(res);
+        });
     });
     // DELETE route for deleting jobs
     app.delete('/api/jobs/:id', (req, res) => {
@@ -33,16 +35,25 @@ module.exports = (app) => {
         }).then((dbPost) => res.json(dbPost));
     });
     // PUT route for updating jobs
-    app.put('/api/jobs', (req, res) => {
-        db.Job.update(req.body, {
+    app.put('/api/jobs/:id', (req, res) => {
+        console.log(req.body);
+        db.Job.update({
+            active: req.body.active,
+            assigned: req.body.assigned
+        }, {
             where: {
-                id: req.body.id,
+                id: req.params.id
             },
-        }).then((dbPost) => res.json(dbPost));
+        }).then((dbPost) => {
+            refreshJobs(res);
+        });
     });
     // route for HBS    
     app.get('/jobMain', (req, res) => {
         console.log("Hit /jobMain end-point!");
+        refreshJobs(res);
+    });
+    const refreshJobs = (res) => {
         db.Job.findAll({}).then((dbPost) => {
             console.log(dbPost);
             const hbsObject = {
@@ -52,5 +63,5 @@ module.exports = (app) => {
             app.engine('handlebars', exphbs({ defaultLayout: 'jobMain' }));
             res.render('jobPartial', hbsObject);
         });
-    });
+    }
 };

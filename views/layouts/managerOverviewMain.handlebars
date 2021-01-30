@@ -18,41 +18,42 @@
 </head>
 
 <body class="text-center">
+    
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/homepage.html">Snow Board</a>
+        <a class="navbar-brand" href="homepage.html">Snow Board</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="crew.html">Crews</a>
-                    <a class="nav-link" href="/jobMain">Jobs </a>
+            <div class="inner">
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link" href="#">Managers</a>
                     <a class="nav-link" href="/employeeMain">Employees</a>
-                </li>
-            </ul>
+                    <a class="nav-link" href="/crewMain">Crews</a>
+                    <a class="nav-link" href="/jobMain#">Jobs</a>
+                </nav>
+            </div>
         </div>
     </nav>
-    <!-- Employees Container -->
-    {{{body}}}
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-            <p>Snow Management App</p>
-        </div>
-    </footer>
+    <main role="main" class="container">
+        <h1 class="mb-5">Dashboard</h1>
+        <h5>Click below to dispatch a crew</h1>
+            <div class="container-fluid managerCont">
+                <div class="row">
+                    {{{body}}}
+                </div>
+            </div>
+    </main>
     <script src="js/manager.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/np rap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn MgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <script>
-        window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+        window.jQuery || document.write('<script src="../../../js/vendor/jquery-slim.min.js"><\/script>')
     </script>
-    <!-- Bootstrap core JavaScript
-        ================================================== -->
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../js/vendor/popper.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
 </body>
 
 </html>

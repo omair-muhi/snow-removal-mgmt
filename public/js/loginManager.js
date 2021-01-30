@@ -42,8 +42,7 @@ $(document).ready(function () {
                 else {
                     alert("Incorrect Name or Id! Try Again")
                 }
-                res.end();
-
+                // res.end();
             })
             .catch(function (err) {
                 console.log(err);
