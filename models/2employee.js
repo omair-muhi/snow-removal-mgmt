@@ -35,7 +35,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     assigned: {
       type: Sequelize.BOOLEAN,
-      allowNull: false,
       defaultValue:false
 
     },

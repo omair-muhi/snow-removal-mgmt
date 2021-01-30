@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
+
 // const activeJobs = document.getElementById('tbody');
 // const clientName = document.getElementById('client_name');
 // const location = document.getElementById('location');

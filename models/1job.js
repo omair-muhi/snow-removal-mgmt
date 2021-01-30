@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
     active: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
-      defaultValue:false
+      defaultValue:true
 
     },
     assigned: {
