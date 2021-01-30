@@ -28,7 +28,7 @@
 html,
 body {
     height: 100%;
-    background-image: url('');
+    background-image: url('../images/background.PNG');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
