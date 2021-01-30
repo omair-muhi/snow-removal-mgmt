@@ -1,67 +1,64 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const nameInput = document.getElementById('user');
-    const jobsList = document.getElementById('jobsList');
-
-
-    const employeeName = localStorage.getItem('name');
-    nameInput.innerHTML = employeeName;
-
-
-    // Grab all the jobs
-    const getJobs = () => {
-        $.get('/api/jobs', {
-
+    
+    const forwardGeo = (place) => {
+    
+    let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=pk.eyJ1IjoibWlrZTIzMTQiLCJhIjoiY2toamIwdnl4MTFmNDMxbnEyNWJwbjR1NiJ9.1DUKlJTuskl62mOGAL0cwA`
+    const coordinates = [];
+    fetch(url)
+        .then(function (response) {
+            return response.json();
         })
-            .then((data) => {
-                console.log(data);
-                const rowsToAdd = [];
-                for (let i = 0; i < data.length; i++) {
-                    rowsToAdd.push(createJobsRow(data[i]));
-                }
-                renderJobsList(rowsToAdd);
-                nameInput.value = '';
-            })
-            .catch((error) => console.error('Error:', error));
+        .then((response) => {
+            console.log(response);
+            let coordinates = response.features[0].geometry.coordinates;
+
+            // ADD YOUR ACCESS TOKEN FROM
+            mapboxgl.accessToken = 'pk.eyJ1IjoibWlrZTIzMTQiLCJhIjoiY2toamIyam13MTYwZzJxb2JqaTV1Mml4ayJ9.6sKRxh4XoUor0TeyVVgvvQ';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+                center: [coordinates[0], coordinates[1]], // starting position [lng, lat]
+                zoom: 9 // starting zoom
+            });
+            var marker = new mapboxgl.Marker()
+                .setLngLat([coordinates[0], coordinates[1]])
+                .addTo(map);
+                // coordinates[0], coordinates[1]
+        })
+    };
+    
+    const mapButton = document.querySelectorAll('.get-map');
+    
+    // Set up the event listener for the create button
+    if (mapButton) {
+        console.info("works");
+        mapButton.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('data-id');
+                
+                fetch(`/api/jobs/${id}`, {
+                    method: 'GET',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                }).then((response) => {
+                    return response.json();
+                })
+                .then((response) => {
+                    const jobLocation = response.location;
+                    console.log(jobLocation);
+                    forwardGeo(jobLocation);         
+                 })
+                
+            });
+        });
     };
 
-    // Create list row for jobs
-    const createJobsRow = (jobData) => {
-        const tr = document.createElement('tr');
-        tr.setAttribute('data-job', JSON.stringify(jobData));
+    
 
-        // Set each job's ID on the element itself
-        tr.id = jobData.id;
 
-        const td = document.createElement('td');
-        td.textContent = jobData.location;
-        tr.appendChild(td);
 
-        // Return the table row
-        return tr;
-    };
-
-    // Helper function to render content when there are no authors
-    const renderEmpty = () => {
-        const alertDiv = document.createElement('div');
-        alertDiv.classList.add('alert', 'alert-danger');
-        alertDiv.textContent = 'No Jobs Exist Contact Management';
-        alertDiv.style.marginRight = '5px';
-        return alertDiv;
-    };
-
-    const renderJobsList = (rows) => {
-
-        if (rows.length) {
-            if (document.getElementById('removeMe')) {
-                document.getElementById('removeMe').remove();
-            }
-            rows.forEach((row) => jobsList.append(row));
-        } else {
-            document.querySelector('.job-container').appendChild(renderEmpty());
-        }
-    };
-    // Get the list of jobs
-    getJobs();
 
 });

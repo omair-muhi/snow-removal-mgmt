@@ -11,6 +11,10 @@
     <link href="../../../stylesheets/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../../../stylesheets/employee.css" rel="stylesheet">
+    {{!-- Map Box --}}
+    <!-- Maps Api -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 
 <body class="text-center">
@@ -36,13 +40,21 @@
         <div class="container">
             {{{body}}}
         </div>
+
+        <div id='map' class='map' style='width: 400px; height: 300px;'></div>
     </main>
+
+    {{!-- Local Script --}}
+    <script src = "js/crew.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
+
+        {{!-- Map Box --}}
     <script>
         window.jQuery || document.write('<script src="../../../js/vendor/jquery-slim.min.js"><\/script>')
     </script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
     <script src="../../../js/vendor/popper.min.js"></script>
     <script src="../../../js/bootstrap.min.js"></script>
 

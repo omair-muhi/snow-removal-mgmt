@@ -14,7 +14,11 @@ module.exports = (app) => {
             where: {
                 id: req.params.id,
             },
-        }).then((dbPost) => res.json(dbPost));
+        }).then((dbPost) => {
+            console.log("oooooooooooooooooooooooooooooooooooooo");
+            console.log(res);
+            res.json(dbPost);
+        })
     });
     // POST route for creating a new job
     app.post('/api/jobs', (req, res) => {
@@ -36,7 +40,7 @@ module.exports = (app) => {
     });
     // PUT route for updating jobs
     app.put('/api/jobs/:id', (req, res) => {
-        console.log(req.body);
+        
         db.Job.update({
             active: req.body.active,
             assigned: req.body.assigned
