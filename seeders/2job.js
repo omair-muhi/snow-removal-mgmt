@@ -6,13 +6,15 @@ module.exports = {
                 client_name: 'Jack Fereday',
                 location: '33 Simon St.',
                 active: true,
+                assigned: false,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 client_name: 'Nick Bolson',
                 location: '3323 Gerari Rd.',
-                active: false,
+                active: true,
+                assigned: false,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -20,6 +22,7 @@ module.exports = {
                 client_name: 'Lisa Dorsy',
                 location: '213 Lake St.',
                 active: true,
+                assigned: false,
                 createdAt: new Date(),
                 updatedAt: new Date()
             }
