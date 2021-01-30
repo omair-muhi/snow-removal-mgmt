@@ -52,18 +52,48 @@ module.exports = (app) => {
     });
     // route for HBS    
     app.get('/crewMain', (req, res) => {
-        console.log("Hit /crewMain end-point!");
+        console.log("---------------Hit /crewMain end-point!");
         refreshCrews(res);
     });
     const refreshCrews = (res) => {
-        db.Crew.findAll({}).then((dbPost) => {
-            console.log(dbPost);
-            const hbsObject = {
-                crews: dbPost,
-            };
-            // console.log(hbsObject.jobs[0].dataValues);
-            app.engine('handlebars', exphbs({ defaultLayout: 'crewMain' }));
-            res.render('crewPartial', hbsObject);
+        db.Crew.findAll({}).then((allCrews) => {
+            // TEST
+            console.log("-----Logging all crews...");
+            // extract all employee IDs
+            let allEmpIds = [];
+            allCrews.forEach((item) => {
+                allEmpIds.push(item.dataValues.employee_id);
+            });
+            // extract all job IDs
+            let allJobIds = [];
+            allCrews.forEach((item) => {
+                allJobIds.push(item.dataValues.job_id);
+            });
+            console.log(allEmpIds);
+            console.log("-----Logging all crews...");
+            db.Employee.findAll({
+                    where: {
+                        id: allEmpIds
+                    }
+                }).then((allEmployees) => {
+                    // console.log("Logging all employees...")
+                    // console.log(allEmployees[0].dataValues.Name);
+                    db.Job.findAll({
+                        where: {
+                            id: allJobIds
+                        }
+                    }).then((allJobs) => {
+                        const hbsObject = {
+                            employees: allEmployees,
+                            jobs: allJobs
+                        };
+                        // console.log(hbsObject.jobs[0].dataValues);
+                        app.engine('handlebars', exphbs({ defaultLayout: 'crewMain' }));
+                        res.render('crewPartial', hbsObject);
+                    })
+                })
+                // TEST
+                // console.log(allCrews);
         });
     }
 };
