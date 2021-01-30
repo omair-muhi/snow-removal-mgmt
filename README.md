@@ -6,23 +6,65 @@ This is a full-stack web application that allows managers and employees of a sno
 ## Table of Contents (Optional)
 
 * [Usage](#usage)
+* [Technologies Used](#technologies used)
 * [Screenshot](#screenshot)
 * [Credits](#credits)
 * [License](#license)
+* [Authors](#authors)
+
 
 ## Usage 
+The application can be installed using the following:
+
+git clone https://github.com/omair-muhi/snow-removal-mgmt.git
+
+## Technologies Used
+- Javascript
+- HTML/CSS
+- MySQL
+- Bootstrap
+- Express
+- Express-handlebars
+- Express-session
+- Node-fetch
+- Nodemon
+- Passport
+- Node
+- MapBox API
+- Heroku
+
+
 ### Dev Environment
 1. `npm install`
 2. `source schema.sql`
 3. `npm run start`
 4. `npx sequelize-cli db:seed:all`
 
-Access at: 
+## Access at
+Heroku Deploy
 
-## Screenshot 
+Github Repo
+https://github.com/omair-muhi/snow-removal-mgmt.git
+
+## Screenshot
+
+![Hompage](public/images/Homepage.PNG)
+![Employee Page](public/images/Employeeoverview.PNG)
+![Employee summary](public/images/Employeepage.PNG)
+
+## Authors
+Omair Muhi
+Mike Tkachuk
+Pieter Boerma
 
 ## Credits
 * UoT FSF Bcamp - this template
+
+## Access at
+Heroku Deploy
+
+Github Repo
+https://github.com/omair-muhi/snow-removal-mgmt.git
 
 ## License
 
