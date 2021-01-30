@@ -8,51 +8,50 @@
     <meta name="author" content="">
     <title>Snow Removal Management</title>
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/v4-shims.css">
+    <link href="../../../stylesheets/bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
-    <link href="stylesheets/manager.css" rel="stylesheet">
+    <link href="../../../stylesheets/employee.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/homepage.html">Snow Board</a>
+        <a class="navbar-brand" href="homepage.html">Snow Board</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+            <div class="inner">
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link" href="/managerOverviewMain">Manager View</a>
                     <a class="nav-link" href="crew.html">Crews</a>
-                    <a class="nav-link" href="/jobMain">Jobs </a>
-                    <a class="nav-link" href="/employeeMain">Employees</a>
-                </li>
-            </ul>
+                    <a class="nav-link" href="/jobMain">Jobs</a>
+                </nav>
+            </div>
         </div>
     </nav>
-    <!-- Employees Container -->
-    {{{body}}}
-    <footer class="mastfoot mt-auto">
+    <main role="main" class="container">
+        <div class="container">
+            <div class="row">
+                {{{body}}}
+            </div>
+        </div>
+        </div>
+    </main>
+    {{!-- <footer class="mastfoot mt-auto">
         <div class="inner">
             <p>Snow Management App</p>
         </div>
-    </footer>
-    <script src="js/manager.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/np rap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn MgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <!-- Placed at the end of the document so the pages load faster -->
+    </footer> --}}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <script>
-        window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+        window.jQuery || document.write('<script src="../../../js/vendor/jquery-slim.min.js"><\/script>')
     </script>
-    <!-- Bootstrap core JavaScript
-        ================================================== -->
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../js/vendor/popper.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
 </body>
 
 </html>
