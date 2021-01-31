@@ -4,7 +4,7 @@ $(document).ready(function() {
     var nameInput = $("input#name-input");
     var passwordInput = $("input#password-input");
 
-    // When the signup button is clicked, we validate the email and password are not blank
+    // When the signup button is clicked, we validate the username and password are not blank
     signUpForm.on("submit", function(event) {
         event.preventDefault();
         var userData = {
@@ -14,13 +14,13 @@ $(document).ready(function() {
         if (!userData.username || !userData.password) {
             return;
         }
-        // If we have an email and password, run the signUpUser function
+        // If we have an username and password, run the signUpUser function
         signUpUser(userData.username, userData.password);
         nameInput.val("");
         passwordInput.val("");
     });
 
-    // Does a post to the signup route. If successful, we are redirected to the members page
+    // Does a post to the signup route. If successful, we are redirected to the managers page
     // Otherwise we log any errors
     function signUpUser(username, password) {
         console.info("******Executing sign up for user", username);

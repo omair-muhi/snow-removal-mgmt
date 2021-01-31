@@ -4,7 +4,6 @@ const Sequelize = require("sequelize");
 // Creating our Job Model
 module.exports = function (sequelize, DataTypes) {
   const Job = sequelize.define("Job", {
-    // Name cannot be null
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -38,14 +37,6 @@ module.exports = function (sequelize, DataTypes) {
   }, {
     freezeTableName: true
   });
-
-  // Job.associate = model => {
-  //   Job.belongsTo(model.Crew, {
-  //     foreignKey: {
-  //       allowNull:true
-  //     }
-  //   });
-  // };
 
   return Job;
 };

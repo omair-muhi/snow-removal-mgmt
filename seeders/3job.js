@@ -7,7 +7,6 @@ module.exports = {
                 location: '33 Simon St.',
                 active: true,
                 assigned:true,
-                // CrewId:1,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -16,7 +15,6 @@ module.exports = {
                 location: '3323 Gerari Rd.',
                 active: false,
                 assigned:false,
-                // CrewId:3,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -25,7 +23,6 @@ module.exports = {
                 location: '213 Lake St.',
                 active: true,
                 assigned:true,
-                // CrewId:3,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
@@ -34,7 +31,6 @@ module.exports = {
                 location: '213 Gozier St.',
                 active: true,
                 assigned:false,
-                // CrewId:2,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },

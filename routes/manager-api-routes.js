@@ -16,19 +16,12 @@ module.exports = (app) => {
                 assigned: false
             }
         }).then((allEmployees) => {
-            // console.log(allEmployees);
-            // console.log(hbsObject.employees[0].dataValues);
             db.Job.findAll({
                 where: {
                     active: true,
                     assigned: false
                 }
             }).then((allJobs) => {
-                console.log(allJobs)
-                    // TEST CODE
-                    // createEmployeeJobMap(allEmployees, allJobs);
-                    // TEST CODE
-                console.log(allJobs)
                 const hbsObject = {
                     employees: allEmployees,
                     jobs: allJobs,
@@ -58,7 +51,6 @@ module.exports = (app) => {
                 keyMap.push(obj);
             }
         }
-        // console.log(keyMap);
         return keyMap;
     }
 };

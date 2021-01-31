@@ -24,13 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
             var marker = new mapboxgl.Marker()
                 .setLngLat([coordinates[0], coordinates[1]])
                 .addTo(map);
-                // coordinates[0], coordinates[1]
         })
     };
     
     const mapButton = document.querySelectorAll('.get-map');
     
-    // Set up the event listener for the create button
     if (mapButton) {
         console.info("works");
         mapButton.forEach((button) => {
@@ -55,10 +53,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     };
-
-    
-
-
-
-
 });

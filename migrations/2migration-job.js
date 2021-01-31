@@ -5,33 +5,36 @@ module.exports = {
             id: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
-                autoIncrement: true,
-                allowNull: false,
-            },
-            client_name: {
+                autoIncrement: true
+              },
+              client_name: {
                 type: Sequelize.STRING,
                 allowNull: false,
-                unique: false
-            },
-            location: {
+                unique: false,
+              },
+          
+              location: {
                 type: Sequelize.STRING,
                 allowNull: false,
-                unique: true
-            },
-            active: {
-                type: Sequelize.BOOLEAN
-            },
-            createdAt: {
+                unique: true,
+              },
+          
+              active: {
+                type: Sequelize.BOOLEAN,
                 allowNull: false,
-                type: Sequelize.DATE
-            },
-            updatedAt: {
-                allowNull: false,
-                type: Sequelize.DATE
-            },
-        }, {
-            freezeTableName: true
-        });
+                defaultValue:true
+          
+              },
+              assigned: {
+                  type: Sequelize.BOOLEAN,
+                  allowNull: false,
+                  defaultValue:false
+          
+                },
+              
+            }, {
+              freezeTableName: true
+            });
     },
     down: async(queryInterface, Sequelize) => {
         await queryInterface.dropTable('Job');
