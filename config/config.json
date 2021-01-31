@@ -1,14 +1,14 @@
 {
     "development": {
         "username": "root",
-        "password": "mikeServer1!",
+        "password": "",
         "database": "snow_removal_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "test": {
         "username": "root",
-        "password": "mikeServer1!",
+        "password": "",
         "database": "snow_removal_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
