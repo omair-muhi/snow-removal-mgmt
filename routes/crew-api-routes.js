@@ -8,7 +8,7 @@ module.exports = (app) => {
     app.get('/api/crews/', (req, res) => {
         db.Crew.findAll({}).then((dbPost) => res.json(dbPost));
     });
-    
+
     // GET route for retrieving a single crew
     app.get('/api/crews/:id', (req, res) => {
         db.Crew.findOne({
@@ -33,6 +33,15 @@ module.exports = (app) => {
             where: {
                 id: req.body.id,
             },
+        }).then((dbPost) => res.json(dbPost));
+    });
+
+    // POST route for creating a new crew
+    app.post('/api/crews', (req, res) => {
+        console.log(req.body);
+        db.Crew.create({
+            employee_id: req.body.employee_id,
+            job_id: req.body.job_id,
         }).then((dbPost) => res.json(dbPost));
     });
 
@@ -82,26 +91,26 @@ module.exports = (app) => {
             console.log(allEmpIds);
             console.log("-----Logging all crews...");
             db.Employee.findAll({
+                where: {
+                    id: allEmpIds
+                }
+            }).then((allEmployees) => {
+                // console.log("Logging all employees...")
+                // console.log(allEmployees[0].dataValues.Name);
+                db.Job.findAll({
                     where: {
-                        id: allEmpIds
+                        id: allJobIds
                     }
-                }).then((allEmployees) => {
-                    // console.log("Logging all employees...")
-                    // console.log(allEmployees[0].dataValues.Name);
-                    db.Job.findAll({
-                        where: {
-                            id: allJobIds
-                        }
-                    }).then((allJobs) => {
-                        const hbsObject = {
-                            employees: allEmployees,
-                            jobs: allJobs
-                        };
-                        // console.log(hbsObject.jobs[0].dataValues);
-                        app.engine('handlebars', exphbs({ defaultLayout: 'crewMain' }));
-                        res.render('crewPartial', hbsObject);
-                    })
+                }).then((allJobs) => {
+                    const hbsObject = {
+                        employees: allEmployees,
+                        jobs: allJobs
+                    };
+                    // console.log(hbsObject.jobs[0].dataValues);
+                    app.engine('handlebars', exphbs({ defaultLayout: 'crewMain' }));
+                    res.render('crewPartial', hbsObject);
                 })
+            })
         });
     }
 };

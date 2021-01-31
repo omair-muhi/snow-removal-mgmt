@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         console.log("MARK EMPLOYEE AS AVAILABLE!!!");
                         location.reload('/jobMain');
                     } else {
-                        alert('something went wrong!');
+                        alert('something went wrong jobcomplete!');
                     }
                 });
                 // free employee
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     if (response.ok) {
                         location.reload('/jobMain');
                     } else {
-                        alert('something went wrong!');
+                        alert('something went wrong employeecomplete!');
                     }
                 });
             });
