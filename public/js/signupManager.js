@@ -12,6 +12,7 @@ $(document).ready(function() {
             password: passwordInput.val().trim()
         };
         if (!userData.username || !userData.password) {
+            alert("You Must Enter Username and Password to Sign Up")
             return;
         }
         // If we have an username and password, run the signUpUser function
@@ -33,9 +34,8 @@ $(document).ready(function() {
             .then(function(data) {
                 console.info("******User successfully authenticated*******", username);
                 window.location.replace("/managerOverviewMain");
-                // If there's an error, handle it by throwing up a bootstrap alert
             })
-            .catch(handleLoginErr);
+            .catch((err) => alert('User already exists'));
     }
 
     function handleLoginErr(err) {
