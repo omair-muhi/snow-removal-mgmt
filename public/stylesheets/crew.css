@@ -1,36 +1,33 @@
-body {
-    padding-top: 5rem;
-}
 
-.starter-template {
-    padding: 3rem 1.5rem;
-    text-align: center;
-}
+    body {
+        background-color: #dc8100;
+        text-align: center;
+        padding: 150px;
+    }
 
-.map{
-    float:right;
-}
+    .back {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 25vw;
+        height: 12vh;
+        color: orange;
+        font-size: 28px;
+        border-radius: 5px;
+    }
 
-/* Navigation */
-.nav-link{
-    display: inline-block;
-}
+    h1 {
+        font-size: 50px;
+    }
 
-/* Main Container */
-.managerCont{
-    position:relative;
-    margin-top:10vh;
-    height:80vh;
-}
+    body {
+        font: 20px Helvetica, sans-serif;
+        color: #333;
+    }
 
-table{
-    margin-top:5vh;
-    margin-left:2.5vw;
-    margin-right:2.5vw;
-}
-
-
-
-footer{
-    top:110vh;
-}
+    article {
+        display: block;
+        text-align: left;
+        width: 650px;
+        margin: 0 auto;
+    }
