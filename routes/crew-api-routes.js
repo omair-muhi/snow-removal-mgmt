@@ -8,7 +8,6 @@ module.exports = (app) => {
     app.get('/api/crews/', (req, res) => {
         db.Crew.findAll({}).then((dbPost) => res.json(dbPost));
     });
-    
     // GET route for retrieving a single crew
     app.get('/api/crews/:id', (req, res) => {
         db.Crew.findOne({
@@ -18,23 +17,23 @@ module.exports = (app) => {
         }).then((dbPost) => res.json(dbPost));
     });
 
-    app.post("/api/login", (req, res) => {
-        db.Employee.findOne({
-            where: {
-                id: req.body.id,
-                Name: req.body.Name,
-            },
-        }).then((dbPost) => res.json(dbPost));
-    });
+    // app.post("/api/login", (req, res) => {
+    //     db.Employee.findOne({
+    //         where: {
+    //             id: req.body.id,
+    //             Name: req.body.Name,
+    //         },
+    //     }).then((dbPost) => res.json(dbPost));
+    // });
 
     // POST route for creating a new crew
-    app.post('/api/crews', (req, res) => {
-        console.log(req.body);
-        db.Crew.create({
-            employee_id: req.body.employee_id,
-            job_id: req.body.job_id,
-        }).then((dbPost) => res.json(dbPost));
-    });
+    // app.post('/api/crews', (req, res) => {
+    //     console.log(req.body);
+    //     db.Crew.create({
+    //         employee_id: req.body.employee_id,
+    //         job_id: req.body.job_id,
+    //     }).then((dbPost) => res.json(dbPost));
+    // });
     // DELETE route for deleting crews
     app.delete('/api/crews/:id', (req, res) => {
         db.Crew.destroy({

@@ -15,7 +15,6 @@ module.exports = (app) => {
                 id: req.params.id,
             },
         }).then((dbPost) => {
-            console.log("oooooooooooooooooooooooooooooooooooooo");
             console.log(res);
             res.json(dbPost);
         })

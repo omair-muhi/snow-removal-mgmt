@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     }
                 });
                 // create a new crew record
-                fetch(`/api/crews`, {
+                fetch(`/api/crew`, {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',

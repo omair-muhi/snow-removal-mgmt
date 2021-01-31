@@ -20,9 +20,10 @@
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div class=" navbar" style = "height:100px; margin:0;" id="navbarsExampleDefault">
             <div class="inner">
-                <nav class="nav nav-masthead justify-content-center">
+
+                <nav class="nav nav-masthead justify-content-center;">
                     <a class="nav-link" href="#">Managers</a>
                     <a class="nav-link" href="/employeeMain">Employees</a>
                     <a class="nav-link" href="/crewMain">Crews</a>
@@ -31,7 +32,12 @@
             </div>
         </div>
     </nav>
-    <main role="main" class="container">
+    
+        <a class="navbar-brand float-left" href="/logout">
+            <button style = "width:10vw; height:110%; margin-top:-1vh;" class="mt-4 btn btn-default btn-dark">Log out</button>
+        </a>
+    
+    <main role="main" class="container" style= "margin-top:100px;">
         <h1 class="mb-5">Dashboard</h1>
         <h5>Click below to dispatch a crew</h1>
             <div class="container">
@@ -41,7 +47,7 @@
             </div>
     </main>
     <script src="js/manager.js" type="text/javascript"></script>
-    
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

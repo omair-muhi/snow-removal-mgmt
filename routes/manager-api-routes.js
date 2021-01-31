@@ -1,11 +1,14 @@
 // Requiring our employee model
 const db = require('../models');
 const exphbs = require('express-handlebars');
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 // Routes - Manager
 // =============================================================
 module.exports = (app) => {
     // route for HBS    
-    app.get('/managerOverviewMain', (req, res) => {
+    app.get('/managerOverviewMain', isAuthenticated, (req, res) => {
         console.log("Hit /managerOverviewMain end-point!");
         db.Employee.findAll({
             where: {
@@ -22,9 +25,9 @@ module.exports = (app) => {
                 }
             }).then((allJobs) => {
                 console.log(allJobs)
-                // TEST CODE
-                // createEmployeeJobMap(allEmployees, allJobs);
-                // TEST CODE
+                    // TEST CODE
+                    // createEmployeeJobMap(allEmployees, allJobs);
+                    // TEST CODE
                 console.log(allJobs)
                 const hbsObject = {
                     employees: allEmployees,

@@ -80,11 +80,3 @@ table{
     float:left;
     flex-direction: column;
 }
-
-html,
-body {
-    height: 100%;
-    background-image: url('../images/background.PNG');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}

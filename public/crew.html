@@ -1,34 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
 
-
-    <!doctype html>
-    <title>Site Maintenance</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Snow Removal Crew</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    
-    <style>
-      body { background-color: #dc8100; text-align: center; padding: 150px; }
-      .back { position: absolute; top: 0px; left: 0px; width: 25vw; height:12vh; color: orange; font-size:28px; border-radius: 5px;}
-      h1 { font-size: 50px; }
-      body { font: 20px Helvetica, sans-serif; color: #333; }
-      article { display: block; text-align: left; width: 650px; margin: 0 auto; }
-      a { color: #ffffff; text-decoration: none; }
-      a:hover { color: #b51919 ; text-decoration: none; }
-    </style>
-    
-    <article>
-        <a href="/homepage.html"><button type="button" class="btn btn-primary back">Return To Homepage</button></a>
-        <h1>The Crew Page in Coming Soon!</h1>
-        <div>
-            <p>A one stop location for all your employees needs. Forms, Proofs and Tracking All In 1 Application, connected to dispatch and live. </p>
-                <p><a href="mailto:#">Contact us</a>, to find out more!</p>
-            <p>&mdash; The Snow Removal Management Team</p>
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/crew.css" rel="stylesheet">
+
+    <!-- Maps Api -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body class="text-center">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/homepage.html">Snow Board</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="crew.html">Crews</a>
+                    <a class="nav-link" href="managerlogin.html">Manager View</a>
+                    <a class="nav-link" href="/jobMain">Jobs </a>
+                    <a class="nav-link" href="/employeeMain">Employees</a>
+                </li>
+            </ul>
         </div>
-    </article>
+    </nav>
+
+    <!-- Crew View -->
+    <div class="container">
+        <main>
+            <div class="py-5 mt-5 text-center">
+                <h2 id="user"></h2>
+                <p class="lead">Best of Luck Out There!</p>
+            </div>
+
+            <div id='map' class='map' style='width: 400px; height: 300px;'></div>
 
 
-</body>
-</html>
+            <div class="row g-3">
+                <div class="col-md-5 col-lg-4 order-md-last">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Job Queue</span>
+                        <span class="badge bg-secondary rounded-pill" id="compTime">20:00</span>
+                    </h4>
+                    <!-- <ul class="list-group mb-3" id="jobList">
+                    <li class="list-group-item d-flex justify-content-between bg-light"> -->
+                    <div id="jobsList" class="text-success">
+                    </div>
 
+                    <!-- <h6 class="my-0"></h6>
+                            <small id = "Job Address">EXAMPLECODE</small> -->
+
+                    <!-- <button>Done</button> -->
+                    <!-- </li>
+                            </ul> -->
+
+        </main>
+
+        <script src="js/crew.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/np rap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn MgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+        <!-- Map Box -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+        <script>
+            
+
+            const workPlace = "Los Angeles";
+            // let location = '5500 Lakeshore Blvd';
+            let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${workPlace}.json?access_token=pk.eyJ1IjoibWlrZTIzMTQiLCJhIjoiY2toamIwdnl4MTFmNDMxbnEyNWJwbjR1NiJ9.1DUKlJTuskl62mOGAL0cwA`
+            const coordinates = [];
+            fetch(url)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then((response) => {
+                    console.log(response);
+                    let coordinates = response.features[0].geometry.coordinates;
+                    
+                    // ADD YOUR ACCESS TOKEN FROM
+                    mapboxgl.accessToken = 'pk.eyJ1IjoibWlrZTIzMTQiLCJhIjoiY2toamIyam13MTYwZzJxb2JqaTV1Mml4ayJ9.6sKRxh4XoUor0TeyVVgvvQ';
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+                        center: [coordinates[0], coordinates[1]], // starting position [lng, lat]
+                        zoom: 9 // starting zoom
+                    });
+                    var marker = new mapboxgl.Marker()
+                        .setLngLat([coordinates[0], coordinates[1]])
+                        .addTo(map);
+                })
+
+
+
+
+        </script>
 </body>
 
 </html>
