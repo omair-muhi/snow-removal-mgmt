@@ -40,12 +40,6 @@ git clone https://github.com/omair-muhi/snow-removal-mgmt.git
 3. `npm run start`
 4. `npx sequelize-cli db:seed:all`
 
-## Access at
-Heroku Deploy
-
-Github Repo
-https://github.com/omair-muhi/snow-removal-mgmt.git
-
 ## Screenshot
 
 ![Hompage](public/images/Homepage.PNG)
@@ -62,9 +56,10 @@ Pieter Boerma
 
 ## Access at
 Heroku Deploy
+https://snowmanagement.herokuapp.com/
 
 Github Repo
-https://github.com/omair-muhi/snow-removal-mgmt.git
+https://github.com/omair-muhi/snow-removal-mgmt
 
 ## License
 
